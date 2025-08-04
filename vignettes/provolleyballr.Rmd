@@ -1,0 +1,59 @@
+---
+title: "Get started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Get started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "figures/",
+  out.width = "100%"
+)
+```
+
+```{r setup, message=FALSE}
+library(provolleyballr)
+library(dplyr)
+library(tidyr)
+```
+
+# Introduction
+
+The `{provolleyballr}` R package provides functions for extracting statistics from [League One Volleyball (LOVB)](https://lovb.com) and [Pro Volleyball Federation (PVF)](https://provolleyball.com) websites. This vignette demonstrates how use the functions and included team and player data.
+
+## Available Data
+
+The package includes four main datasets created with the `group_stats()` function: player season and team match data for LOVB and PVF.
+
+```{r data-overview}
+# Load LOVB individual player data  
+head(lovb_player_data)
+
+# Load LOVB team match data
+head(lovb_team_data)
+
+# Load PVF individual player data  
+head(pvf_player_data)
+
+# Load PVF team match data
+head(pvf_team_data)
+```
+
+
+
+# Conclusion
+
+This vignette demonstrates various approaches to analyzing PVF data using the **provolleyballr** package. The included datasets provide rich opportunities for:
+
+- Team performance evaluation
+- Individual player assessment  
+- Role-based analysis
+- Statistical modeling and prediction
+- Comparative studies across teams and seasons
+
+For more advanced analyses, consider combining this data with external sources or developing custom metrics specific to volleyball analytics.

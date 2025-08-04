@@ -1,0 +1,22 @@
+url: https://jeffreyrstevens.github.io/provolleyballr/
+template:
+  bootstrap: 5
+  bootswatch: spacelab
+  light-switch: true
+  bslib:
+    primary: "#7af5b3"
+    info: "#7af5b3"
+
+reference:
+- title: Extract team and player statistics
+  contents:
+  - get_stats
+  - lovb_stats
+  - pvf_stats
+- title: Aggregate team statistics
+  contents:
+  - group_stats
+- title: Data
+  contents:
+  - ends_with("_teams")
+  - ends_with("_data")

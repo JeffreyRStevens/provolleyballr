@@ -1,0 +1,38 @@
+Package: provolleyballr
+Type: Package
+Title: Extract Data from Pro Volleyball Federation Website
+Version: 0.0.1
+Authors@R: 
+    person("Jeffrey R.", "Stevens", , "jeffrey.r.stevens@protonmail.com", 
+    role = c("aut", "cre", "cph"),
+    comment = c(ORCID = "0000-0003-2375-1360"))
+Maintainer: Jeffrey R. Stevens <jeffrey.r.stevens@protonmail.com>
+Description: Tools for scraping match statistics and player data from the League One Volleyball website <https://lovb.com> and the Pro Volleyball Federation (PVF) website <https://provolleyball.com>.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends: 
+    R (>= 4.2)
+RoxygenNote: 7.3.2
+Roxygen: list(markdown = TRUE)
+Imports:
+    cli,
+    curl,
+    dplyr,
+    janitor,
+    lifecycle,
+    purrr,
+    rlang,
+    rvest,
+    stringr,
+    selenider
+Suggests:
+    chromote,
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0),
+    tidyr
+SystemRequirements: Google Chrome browser
+URL: https://github.com/JeffreyRStevens/provolleyballr
+BugReports: https://github.com/JeffreyRStevens/provolleyballr/issues
+VignetteBuilder: knitr
+LazyData: true
