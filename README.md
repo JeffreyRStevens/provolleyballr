@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# provolleyballr
+# provolleyballr <a href="https://jeffreyrstevens.github.io/provolleyballr/"><img src="man/figures/logo.png" align="right" height="139" alt="provolleyballr website" /></a>
 
 <!-- badges: start -->
 
