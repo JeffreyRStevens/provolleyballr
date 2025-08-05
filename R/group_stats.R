@@ -24,6 +24,7 @@
 #' pvf_player_data <- group_stats(league = "PVF", year = 2024:2025, level = "player")
 #' @export
 group_stats <- function(league = NULL, year = NULL, level = NULL) {
+  check_match(name = "league", value = league, vec = c("LOVB", "PVF"))
   if (league == "PVF") {
     teams <- provolleyballr::pvf_teams$city
   } else {

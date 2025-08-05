@@ -34,7 +34,13 @@ check_year <- function(year = NULL, min = NULL) {
   if (length(year) > 1) {
     cli::cli_abort("Enter a single year.")
   }
-  if (is.null(year) || !is.numeric(year) || !all(year %in% min:max_year)) {
+  if (is.null(year) || is.na(year)) {
+    cli::cli_abort(paste0("Enter valid year."))
+  }
+  if (is.null(min) || is.na(min)) {
+    cli::cli_abort(paste0("Enter valid minimum year."))
+  }
+  if (!is.numeric(year) || !all(year %in% min:max_year)) {
     cli::cli_abort(paste0("Enter valid year between {min}-{max_year}."))
   }
 }

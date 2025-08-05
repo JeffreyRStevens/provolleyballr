@@ -88,7 +88,7 @@ test_that("get_stats validates input parameters correctly", {
   # Test year parameter validation
   expect_error(
     get_stats(league = "PVF", team = "Omaha", level = "team"),
-    "Enter valid year between 2024-2025"
+    "Enter valid year."
   )
   expect_error(
     get_stats(league = "PVF", team = "Omaha", year = "2024", level = "team"),
@@ -99,8 +99,12 @@ test_that("get_stats validates input parameters correctly", {
     "Enter valid year between 2024-2025"
   )
   expect_error(
+    get_stats(league = "LOVB", team = "Omaha", year = 2017, level = "team"),
+    "Enter valid year between 2025-2025"
+  )
+  expect_error(
     get_stats(league = "PVF", team = "Omaha", year = NA_real_, level = "team"),
-    "Enter valid year between 2024-2025"
+    "Enter valid year."
   )
   expect_error(
     get_stats(
@@ -132,7 +136,53 @@ test_that("get_stats validates input parameters correctly", {
   )
 })
 
-# Integration tests (these would require actual web scraping - marked as skip)
+# Test invalid values
+test_that("get_stats warns for invalid values", {
+  expect_warning(
+    get_stats(league = "PVF", "Indy", year = 2024, level = "team"),
+    "No data available for Indy in 2024"
+  )
+})
+
+# LOVB
+test_that("get_stats returns proper data structure for team level", {
+  skip_if_not_installed("selenider")
+  skip_if_not(
+    nzchar(Sys.which("google-chrome")) || nzchar(Sys.which("chromium-browser")),
+    "Chrome not available"
+  )
+  skip_on_cran()
+  skip_on_ci()
+  # skip("Requires internet connection and may be slow")
+
+  # This test would require actual web scraping
+  result <- get_stats(league = "LOVB", "Omaha", year = 2025, level = "team")
+  expect_s3_class(result, "data.frame")
+  expect_true(ncol(result) == 24) # Expect multiple columns
+  expect_true(nrow(result) == 16) # Expect some data
+  expect_true(all(c("date", "team", "opponent", "points") %in% names(result)))
+})
+
+test_that("get_stats returns proper data structure for individual level", {
+  skip_if_not_installed("selenider")
+  skip_if_not(
+    nzchar(Sys.which("google-chrome")) || nzchar(Sys.which("chromium-browser")),
+    "Chrome not available"
+  )
+  skip_on_cran()
+  skip_on_ci()
+
+  # This test would require actual web scraping
+  result <- get_stats(league = "LOVB", "Omaha", year = 2025, "player")
+  expect_s3_class(result, "data.frame")
+  expect_true(ncol(result) == 27) # Expect multiple columns for individual stats
+  expect_true(nrow(result) == 17) # Expect some data
+  expect_true(all(
+    c("team", "number", "player", "sets_played") %in% names(result)
+  ))
+})
+
+# PVF
 test_that("get_stats returns proper data structure for team level", {
   skip_if_not_installed("selenider")
   skip_if_not(
