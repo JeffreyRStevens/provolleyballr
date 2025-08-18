@@ -150,7 +150,7 @@ pvf_stats <- function(team = NULL, year = NULL, level = NULL) {
         dplyr::mutate(EFF = as.numeric(sub("\\%", "", .data$EFF))) |>
         dplyr::mutate(Year = year, .before = 1) |>
         dplyr::mutate(Team = team, .after = "Year") |>
-        dplyr::relocate(.data$`AVG/S`, .after = "DIG")
+        dplyr::relocate("AVG/S", .after = "DIG")
       colnames(table) <- c(
         "year",
         "team",

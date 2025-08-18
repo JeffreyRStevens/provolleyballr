@@ -156,7 +156,12 @@ test_that("get_stats returns proper data structure for team level", {
   # skip("Requires internet connection and may be slow")
 
   # This test would require actual web scraping
-  result <- get_stats(league = "LOVB", "Omaha", year = 2025, level = "team")
+  result <- get_stats(
+    league = "LOVB",
+    team = "Omaha",
+    year = 2025,
+    level = "team"
+  )
   expect_s3_class(result, "data.frame")
   expect_true(ncol(result) == 24) # Expect multiple columns
   expect_true(nrow(result) == 16) # Expect some data
