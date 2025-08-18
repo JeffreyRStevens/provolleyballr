@@ -6,6 +6,7 @@ lovb_teams <- data.frame(
     "Austin",
     "Houston",
     "Madison",
+    "Nebraska",
     "Omaha",
     "Salt Lake"
   )

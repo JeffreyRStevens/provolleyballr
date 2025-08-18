@@ -34,7 +34,10 @@ group_stats <- function(league = NULL, year = NULL, level = NULL) {
     teams = rep(teams, times = length(year)),
     years = rep(year, each = length(teams))
   ) |>
-    dplyr::filter(.data$teams != "Indy" | .data$years != 2024)
+    dplyr::filter(.data$teams != "Indy" | .data$years != 2024) |>
+    dplyr::filter(
+      .data$teams != "Omaha" | league != "PVF" | .data$years > 2025
+    )
 
   purrr::map2(
     all_teams$teams,

@@ -3,6 +3,7 @@ pvf_teams <- data.frame(
   name = c(
     "Atlanta Vibe",
     "Columbus Fury",
+    "Dallas",
     "Grand Rapids Rise",
     "Indy Ignite",
     "Omaha Supernovas",
@@ -18,7 +19,7 @@ pvf_teams <- data.frame(
   ) |>
   dplyr::mutate(
     slug = tolower(gsub(" ", "-", name)),
-    first_year = c(rep(2024, 3), 2025, rep(2024, 4))
+    first_year = c(rep(2024, 2), 2026, 2024, 2025, rep(2024, 4))
   )
 usethis::use_data(pvf_teams, overwrite = TRUE)
 

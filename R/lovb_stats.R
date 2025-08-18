@@ -34,6 +34,9 @@ lovb_stats <- function(team = NULL, year = NULL, level = NULL) {
 
   # Get team name and fix likely city name issues
   team_lower <- tolower(team)
+  if (team_lower == "omaha") {
+    team_lower <- "nebraska"
+  }
 
   # Get team name slug for URL
   if (team_lower %in% tolower(teams$name)) {
@@ -77,11 +80,11 @@ lovb_stats <- function(team = NULL, year = NULL, level = NULL) {
   # Extract team or player stats
   if (level == "team") {
     table <- extract_lovb_team_stats(page_html) |>
-      dplyr::filter(.data$opponent != "Totals") |>
+      dplyr::filter(opponent != "Totals") |>
       dplyr::mutate(year = year, team = team, .before = 1)
   } else {
     table <- extract_lovb_player_stats(page_html) |>
-      dplyr::filter(.data$player != "Totals") |>
+      dplyr::filter(player != "Totals") |>
       dplyr::mutate(year = year, team = team, .before = 1)
   }
   return(table)

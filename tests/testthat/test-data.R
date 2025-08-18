@@ -1,10 +1,10 @@
 test_that("datasets are correct", {
   # Check teams dataset
   expect_equal(ncol(lovb_teams), 3)
-  expect_equal(nrow(lovb_teams), 6)
+  expect_equal(nrow(lovb_teams), 7)
   expect_equal(lovb_teams$name[1], "Atlanta")
   expect_equal(ncol(pvf_teams), 5)
-  expect_equal(nrow(pvf_teams), 8)
+  expect_equal(nrow(pvf_teams), 9)
   expect_equal(pvf_teams$city[1], "Atlanta")
 
   # Check team_data datasets
