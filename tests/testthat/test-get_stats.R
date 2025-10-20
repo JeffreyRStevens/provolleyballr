@@ -58,26 +58,26 @@ test_that("get_stats validates input parameters correctly", {
     "Enter valid league"
   )
   expect_error(
-    get_stats(league = c("LOVB", "PVF"), year = 2024, level = "team"),
+    get_stats(league = c("LOVB", "MLV"), year = 2024, level = "team"),
     "Enter single value for league"
   )
 
   # Test team parameter validation
   expect_error(
-    get_stats(league = "PVF", year = 2024, level = "team"),
+    get_stats(league = "MLV", year = 2024, level = "team"),
     "Enter valid team"
   )
   expect_error(
-    get_stats(league = "PVF", team = 123, year = 2024, level = "team"),
+    get_stats(league = "MLV", team = 123, year = 2024, level = "team"),
     "Enter valid team"
   )
   expect_error(
-    get_stats(league = "PVF", team = NA, year = 2024, level = "team"),
+    get_stats(league = "MLV", team = NA, year = 2024, level = "team"),
     "Enter valid team"
   )
   expect_error(
     get_stats(
-      league = "PVF",
+      league = "MLV",
       team = c("Omaha", "Atlanta"),
       year = 2024,
       level = "team"
@@ -87,15 +87,15 @@ test_that("get_stats validates input parameters correctly", {
 
   # Test year parameter validation
   expect_error(
-    get_stats(league = "PVF", team = "Omaha", level = "team"),
+    get_stats(league = "MLV", team = "Omaha", level = "team"),
     "Enter valid year."
   )
   expect_error(
-    get_stats(league = "PVF", team = "Omaha", year = "2024", level = "team"),
+    get_stats(league = "MLV", team = "Omaha", year = "2024", level = "team"),
     "Enter valid year between 2024-2025"
   )
   expect_error(
-    get_stats(league = "PVF", team = "Omaha", year = 2017, level = "team"),
+    get_stats(league = "MLV", team = "Omaha", year = 2017, level = "team"),
     "Enter valid year between 2024-2025"
   )
   expect_error(
@@ -103,12 +103,12 @@ test_that("get_stats validates input parameters correctly", {
     "Enter valid year between 2025-2025"
   )
   expect_error(
-    get_stats(league = "PVF", team = "Omaha", year = NA_real_, level = "team"),
+    get_stats(league = "MLV", team = "Omaha", year = NA_real_, level = "team"),
     "Enter valid year."
   )
   expect_error(
     get_stats(
-      league = "PVF",
+      league = "MLV",
       team = "Omaha",
       year = c(2024, 2025),
       level = "team"
@@ -118,16 +118,16 @@ test_that("get_stats validates input parameters correctly", {
 
   # Test level parameter validation
   expect_error(
-    get_stats(league = "PVF", team = "Omaha", year = 2024, level = "invalid"),
+    get_stats(league = "MLV", team = "Omaha", year = 2024, level = "invalid"),
     "Enter valid level"
   )
   expect_error(
-    get_stats(league = "PVF", team = "Omaha", year = 2024, level = 123),
+    get_stats(league = "MLV", team = "Omaha", year = 2024, level = 123),
     "Enter valid level"
   )
   expect_error(
     get_stats(
-      league = "PVF",
+      league = "MLV",
       team = "Omaha",
       year = 2024,
       level = c("team", "individual")
@@ -139,7 +139,7 @@ test_that("get_stats validates input parameters correctly", {
 # Test invalid values
 test_that("get_stats warns for invalid values", {
   expect_warning(
-    get_stats(league = "PVF", "Indy", year = 2024, level = "team"),
+    get_stats(league = "MLV", "Indy", year = 2024, level = "team"),
     "No data available for Indy in 2024"
   )
 })
@@ -187,7 +187,7 @@ test_that("get_stats returns proper data structure for individual level", {
   ))
 })
 
-# PVF
+# MLV
 test_that("get_stats returns proper data structure for team level", {
   skip_if_not_installed("selenider")
   skip_if_not(
@@ -199,7 +199,7 @@ test_that("get_stats returns proper data structure for team level", {
   # skip("Requires internet connection and may be slow")
 
   # This test would require actual web scraping
-  result <- get_stats(league = "PVF", "Omaha", year = 2024, level = "team")
+  result <- get_stats(league = "MLV", "Omaha", year = 2024, level = "team")
   expect_s3_class(result, "data.frame")
   expect_true(ncol(result) == 15) # Expect multiple columns
   expect_true(nrow(result) == 24) # Expect some data
@@ -217,7 +217,7 @@ test_that("get_stats returns proper data structure for individual level", {
   # skip("Requires internet connection and may be slow")
 
   # This test would require actual web scraping
-  result <- get_stats(league = "PVF", "Omaha", year = 2024, "player")
+  result <- get_stats(league = "MLV", "Omaha", year = 2024, "player")
   expect_s3_class(result, "data.frame")
   expect_true(ncol(result) == 23) # Expect multiple columns for individual stats
   expect_true(nrow(result) == 17) # Expect some data

@@ -1,7 +1,7 @@
-#' Extract Data from Pro Volleyball Federation Website
+#' Extract Data from Major League Volleyball Website
 #'
-#' This function scrapes team match-by-match and player season statistics for Pro
-#' Volleyball Federation (PVF) teams from the official PVF website
+#' This function scrapes team match-by-match and player season statistics for 
+#' Major League Volleyball (MLV) teams from the official website
 #' <https://provolleyball.com>.
 #'
 #' @inheritParams get_stats
@@ -28,12 +28,12 @@
 #'
 #' @examplesIf interactive()
 #' # Get Omaha Supernovas 2024 match statistics
-#' pvf_stats(team = "Omaha", year = 2024, level = "team")
-#' pvf_stats(team = "Omaha", year = 2024, level = "player")
+#' mlv_stats(team = "Omaha", year = 2024, level = "team")
+#' mlv_stats(team = "Omaha", year = 2024, level = "player")
 #'
 #' @export
-pvf_stats <- function(team = NULL, year = NULL, level = NULL) {
-  teams <- provolleyballr::pvf_teams
+mlv_stats <- function(team = NULL, year = NULL, level = NULL) {
+  teams <- provolleyballr::mlv_teams
 
   # Validate inputs
   check_match(name = "team", value = team, vec = teams$city)
