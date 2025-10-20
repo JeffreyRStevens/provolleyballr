@@ -24,24 +24,27 @@ library(tidyr)
 
 # Introduction
 
-The `{provolleyballr}` R package provides functions for extracting statistics from [League One Volleyball (LOVB)](https://lovb.com) and [Pro Volleyball Federation (PVF)](https://provolleyball.com) websites. This vignette demonstrates how use the functions and included team and player data.
+The `{provolleyballr}` R package provides functions for extracting statistics from [Athletes Unlimited](<https://auprosports.com/volleyball), [League One Volleyball (LOVB)](https://lovb.com) and [Major League Volleyball (MLV)](https://provolleyball.com) websites. This vignette demonstrates how use the functions and included team and player data.
 
 ## Available Data
 
-The package includes four main datasets created with the `group_stats()` function: player season and team match data for LOVB and PVF.
+The package includes four main datasets created with the `group_stats()` function: player season data from AU and player season and team match data for LOVB and PVF.
 
 ```{r data-overview}
+# Load AU individual player data  
+head(au_player_data)
+
 # Load LOVB individual player data  
 head(lovb_player_data)
 
 # Load LOVB team match data
 head(lovb_team_data)
 
-# Load PVF individual player data  
-head(pvf_player_data)
+# Load MLV individual player data  
+head(mlv_player_data)
 
-# Load PVF team match data
-head(pvf_team_data)
+# Load MLV team match data
+head(mlv_team_data)
 ```
 
 

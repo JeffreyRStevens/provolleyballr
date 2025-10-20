@@ -1,6 +1,7 @@
 ^provolleyballr\.Rproj$
 ^\.Rproj\.user$
 ^data-raw$
+^data-csv$
 ^README\.Rmd$
 ^\.github$
 ^_pkgdown\.yml$

@@ -15,8 +15,10 @@ experimental](man/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.o
 The
 [`{provolleyballr}`](https://jeffreyrstevens.github.io/provolleyballr) R
 package provides tools for scraping match statistics and player data
-from the League One Volleyball website <https://lovb.com> and the Pro
-Volleyball Federation (PVF) website <https://provolleyball.com>.
+from the Major League (MLV) website <https://provolleyball.com>
+(formerly the Pro Volleyball Federation), the League One Volleyball
+website <https://lovb.com>, and the Athletes Unlimited (UA) website
+<https://auprosports.com/volleyball>.
 
 ## Installation
 
@@ -48,7 +50,7 @@ library(provolleyballr)
 
 ### Available Teams
 
-The package includes information about all LOVB and PVF teams:
+The package includes information about all LOVB and MLV teams:
 
 ``` r
 # View available teams
@@ -58,18 +60,20 @@ lovb_teams
 #> 2    Austin    austin       2025
 #> 3   Houston   houston       2025
 #> 4   Madison   madison       2025
-#> 5     Omaha     omaha       2025
-#> 6 Salt Lake salt-lake       2025
-pvf_teams
+#> 5  Nebraska  nebraska       2025
+#> 6     Omaha     omaha       2025
+#> 7 Salt Lake salt-lake       2025
+mlv_teams
 #>           city     mascot              name              slug first_year
 #> 1      Atlanta       Vibe      Atlanta Vibe      atlanta-vibe       2024
 #> 2     Columbus       Fury     Columbus Fury     columbus-fury       2024
-#> 3 Grand Rapids       Rise Grand Rapids Rise grand-rapids-rise       2024
-#> 4         Indy     Ignite       Indy Ignite       indy-ignite       2025
-#> 5        Omaha Supernovas  Omaha Supernovas  omaha-supernovas       2024
-#> 6      Orlando  Valkyries Orlando Valkyries orlando-valkyries       2024
-#> 7    San Diego       Mojo    San Diego Mojo    san-diego-mojo       2024
-#> 8        Vegas     Thrill      Vegas Thrill      vegas-thrill       2024
+#> 3       Dallas       <NA>            Dallas            dallas       2026
+#> 4 Grand Rapids       Rise Grand Rapids Rise grand-rapids-rise       2024
+#> 5         Indy     Ignite       Indy Ignite       indy-ignite       2025
+#> 6        Omaha Supernovas  Omaha Supernovas  omaha-supernovas       2024
+#> 7      Orlando  Valkyries Orlando Valkyries orlando-valkyries       2024
+#> 8    San Diego       Mojo    San Diego Mojo    san-diego-mojo       2024
+#> 9        Vegas     Thrill      Vegas Thrill      vegas-thrill       2024
 ```
 
 ### Scraping Statistics
@@ -82,22 +86,22 @@ a particular league:
 get_stats(league = "LOVB", team = "Austin", year = 2025, level = "team")
 
 # Get individual player statistics
-get_stats(league = "PVF", team = "Omaha", year = 2024, level = "player")
+get_stats(league = "MLV", team = "Omaha", year = 2024, level = "player")
 ```
 
 ### Working with Included Datasets
 
 The package includes pre-scraped datasets (using `group_stats()`
-aggregating function) for analysis that includes all LOVB and PVF team
-and player data for 2024-2025.
+aggregating function) for analysis that includes all AU player data from
+2021-2025 and all LOVB and MLV team and player data for 2024-2025.
 
 - `lovb_player_data`
 
 - `lovb_team_data`
 
-- `pvf_player_data`
+- `mlv_player_data`
 
-- `pvf_team_data`
+- `mlv_team_data`
 
 For more information, see the package vignette:
 
@@ -109,8 +113,38 @@ vignette("get-started", package = "provolleyballr")
 ## Data Dictionary
 
 Full definitions available at [LOVB League
-Statistics](https://www.lovb.com/2025/league-statistics) and [PVF
+Statistics](https://www.lovb.com/2025/league-statistics) and [MLV
 Statistics Guide](https://provolleyball.com/statistics-guide).
+
+### Athletes Unlimited (AU) data
+
+- `year`: Season year
+- `team`: Player’s team name
+- `number`: Player jersey number
+- `player`: Player name
+- `points`: Total Points
+- `matches_started`: Matches Started
+- `sets_started`: Sets Started
+- `sets_played`: Sets Played
+- `hitting_efficiency`: Attack Efficiency percentage
+- `kill_percentage`: Kill percentage
+- `kills`: Kills - successful attacks
+- `attack_errors`: Attack Errors
+- `attacks_blocked`: Attacks blocked by opponent
+- `attack_attempts`: Total attack attempts
+- `in_system_percentage`: In-system percentage
+- `reception_errors`: Reception errors
+- `reception_attempts`: Reception attempts
+- `service_aces`: Service Aces - serves that result directly in a point
+- `service_errors`: Service errors
+- `opponent_in_system_percentage`: Opponent in-system percentage
+- `service_attempts`: Service attempts
+- `blocks`: Blocks - successful defensive plays at the net
+- `block_touch_percentage`: Block touch percentage
+- `digs`: Digs - successful defensive plays
+- `dig_percentage`: Dig percentage
+- `assists`: Assists - sets that lead directly to a kill
+- `setting_efficiency`: Setting efficiency percentage
 
 ### League One Volleyball (LOVB) Data
 
@@ -171,7 +205,7 @@ Statistics Guide](https://provolleyball.com/statistics-guide).
 - `assists`: Assists
 - `setting_efficiency`: Setting efficiency percentage
 
-### Pro Volleyball Federation (PVF) Data
+### Pro Volleyball Federation (MLV) Data
 
 #### Team Data
 
