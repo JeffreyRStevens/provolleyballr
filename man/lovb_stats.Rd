@@ -10,13 +10,13 @@ lovb_stats(team = NULL, year = NULL, level = NULL)
 \item{team}{A character string specifying the team name or city. Accepts
 city names (e.g., "Omaha", "Atlanta") or variations like "Indianapolis"
 (converted to "Indy") and "Las Vegas" (converted to "Vegas"). Must match
-one of the valid LOVB or PVF team cities.}
+one of the valid LOVB or MLV team cities. AU has no teams.}
 
 \item{year}{A numeric value specifying the year for which to retrieve
-statistics. Must be 2024 or later, corresponding to available LOVB or PVF seasons.}
+statistics. Must be 2024 or later for LOVB or MLV and 2021 or later for AU.}
 
 \item{level}{A character string specifying whether to extract the "team" or individual
-"player" statistics.}
+"player" statistics. AU has no team statistics.}
 }
 \value{
 A tibble containing team match-by-match or player season statistics.
@@ -46,7 +46,7 @@ will be visible during execution. Browser sessions are automatically closed
 after data extraction.
 }
 \examples{
-\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 # Get Omaha Supernovas 2024 match statistics
 lovb_stats(team = "Omaha", year = 2025, level = "team")
 lovb_stats(team = "Omaha", year = 2025, level = "player")
@@ -54,8 +54,9 @@ lovb_stats(team = "Omaha", year = 2025, level = "player")
 }
 \seealso{
 Other statistics functions: 
+\code{\link{au_stats}()},
 \code{\link{get_stats}()},
 \code{\link{group_stats}()},
-\code{\link{pvf_stats}()}
+\code{\link{mlv_stats}()}
 }
 \concept{statistics functions}

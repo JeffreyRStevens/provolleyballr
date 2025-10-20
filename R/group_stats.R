@@ -1,15 +1,15 @@
 #' Get Statistics for All Teams in a League
 #'
 #' This function retrieves statistics for all teams in a specified league
-#' (LOVB or PVF) and year(s).
+#' (LOVB or MLV) and year(s).
 #'
 #' @inheritParams get_stats
 #'
 #' @return A data frame containing statistics for all teams in the specified
 #'   league and year(s). The structure depends on the league and level:
 #'   \itemize{
-#'     \item For PVF team-level: Team match statistics
-#'     \item For PVF player-level: Individual player statistics
+#'     \item For MLV team-level: Team match statistics
+#'     \item For MLV player-level: Individual player statistics
 #'     \item For LOVB team-level: Team match statistics
 #'     \item For LOVB player-level: Individual player statistics
 #'   }
@@ -20,23 +20,26 @@
 #' # Get all team statistics for both leagues
 #' lovb_team_data <- group_stats(league = "LOVB", year = 2025, level = "team")
 #' lovb_player_data <- group_stats(league = "LOVB", year = 2025, level = "player")
-#' pvf_team_data <- group_stats(league = "PVF", year = 2024:2025, level = "team")
-#' pvf_player_data <- group_stats(league = "PVF", year = 2024:2025, level = "player")
+#' mlv_team_data <- group_stats(league = "MLV", year = 2024:2025, level = "team")
+#' mlv_player_data <- group_stats(league = "MLV", year = 2024:2025, level = "player")
 #' @export
 group_stats <- function(league = NULL, year = NULL, level = NULL) {
-  check_match(name = "league", value = league, vec = c("LOVB", "PVF"))
-  if (league == "PVF") {
-    teams <- provolleyballr::pvf_teams$city
-  } else {
+  check_match(name = "league", value = league, vec = c("AU", "LOVB", "MLV"))
+  if (league == "MLV") {
+    teams <- provolleyballr::mlv_teams$city
+  } else if (league == "LOVB") {
     teams <- provolleyballr::lovb_teams$name
+  } else {
+    teams <- "none"
   }
   all_teams <- data.frame(
     teams = rep(teams, times = length(year)),
     years = rep(year, each = length(teams))
   ) |>
-    dplyr::filter(.data$teams != "Indy" | .data$years != 2024) |>
+    dplyr::filter(.data$teams != "Indy" | .data$years >= 2025) |>
+    dplyr::filter(.data$teams != "Dallas" | .data$years >= 2026) |>
     dplyr::filter(
-      .data$teams != "Omaha" | league != "PVF" | .data$years > 2025
+      .data$teams != "Omaha" | league != "MLV" | .data$years > 2025
     )
 
   purrr::map2(

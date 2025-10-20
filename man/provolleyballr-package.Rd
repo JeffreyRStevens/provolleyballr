@@ -4,11 +4,11 @@
 \name{provolleyballr-package}
 \alias{provolleyballr}
 \alias{provolleyballr-package}
-\title{provolleyballr: Extract Data from Pro Volleyball Federation Website}
+\title{provolleyballr: Extract Data from US Women's Professional Volleyball Websites}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Tools for scraping match statistics and player data from the League One Volleyball website \url{https://lovb.com} and the Pro Volleyball Federation (PVF) website \url{https://provolleyball.com}.
+Tools for scraping match statistics and player data from the Major League (MLV) website \url{https://provolleyball.com}, the League One Volleyball website \url{https://lovb.com}, and the Athletes Unlimited (UA) website \url{https://auprosports.com/volleyball}.
 }
 \seealso{
 Useful links:

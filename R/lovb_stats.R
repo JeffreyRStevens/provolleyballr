@@ -14,7 +14,7 @@
 #' Player data include:
 #'   year, team, number, player, points, matches_started, sets_started, sets_played, hitting_efficiency, kill_percentage, kills, attack_errors, attacks_blocked, attack_attempts, in_system_percentage, reception_errors, reception_attempts, service_aces, service_errors, opponent_in_system_percentage, service_attempts, blocks, block_touch_percentage, digs, dig_percentage, assists, setting_efficiency
 #'
-#' @inherit pvf_stats note
+#' @inherit mlv_stats note
 #'
 #' @family statistics functions
 #'
@@ -80,11 +80,11 @@ lovb_stats <- function(team = NULL, year = NULL, level = NULL) {
   # Extract team or player stats
   if (level == "team") {
     table <- extract_lovb_team_stats(page_html) |>
-      dplyr::filter(opponent != "Totals") |>
+      dplyr::filter(.data$opponent != "Totals") |>
       dplyr::mutate(year = year, team = team, .before = 1)
   } else {
     table <- extract_lovb_player_stats(page_html) |>
-      dplyr::filter(player != "Totals") |>
+      dplyr::filter(.data$player != "Totals") |>
       dplyr::mutate(year = year, team = team, .before = 1)
   }
   return(table)
