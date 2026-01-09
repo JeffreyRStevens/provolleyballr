@@ -30,7 +30,7 @@ check_match <- function(name = NULL, value = NULL, vec = NULL) {
 #' @keywords internal
 #'
 check_year <- function(year = NULL, min = NULL) {
-  max_year <- 2025
+  max_year <- 2026
   if (length(year) > 1) {
     cli::cli_abort("Enter a single year.")
   }
