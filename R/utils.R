@@ -1,3 +1,11 @@
+#' Assigns current year
+#'
+#' @keywords internal
+#'
+current_year <- function() {
+  2026
+}
+
 #' Checks if value is matched in vector
 #'
 #' @param name Argument name.
@@ -30,7 +38,7 @@ check_match <- function(name = NULL, value = NULL, vec = NULL) {
 #' @keywords internal
 #'
 check_year <- function(year = NULL, min = NULL) {
-  max_year <- 2026
+  max_year <- current_year()
   if (length(year) > 1) {
     cli::cli_abort("Enter a single year.")
   }
