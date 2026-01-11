@@ -3,7 +3,7 @@ mlv_teams <- data.frame(
   name = c(
     "Atlanta Vibe",
     "Columbus Fury",
-    "Dallas",
+    "Dallas Pulse",
     "Grand Rapids Rise",
     "Indy Ignite",
     "Omaha Supernovas",
@@ -29,8 +29,10 @@ mlv_player_data <- group_stats(
   year = 2024:2025,
   level = "player"
 )
+write.csv(mlv_player_data, "data-csv/mlv_player_data.csv", row.names = FALSE)
 usethis::use_data(mlv_player_data, overwrite = TRUE)
 
 # Create PVF team data
 mlv_team_data <- group_stats(league = "MLV", year = 2024:2025, level = "team")
+write.csv(mlv_team_data, "data-csv/mlv_team_data.csv", row.names = FALSE)
 usethis::use_data(mlv_team_data, overwrite = TRUE)
