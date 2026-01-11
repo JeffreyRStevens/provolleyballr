@@ -38,54 +38,67 @@ lovb_stats <- function(team = NULL, year = NULL, level = NULL) {
     team_lower <- "nebraska"
   }
 
-  # Get team name slug for URL
-  if (team_lower %in% tolower(teams$name)) {
-    slug <- teams$slug[which(team_lower == tolower(teams$name))]
-  } else {
-    cli::cli_abort("'{team}' not found in the list of teams: {teams$city}")
-    return(invisible())
-  }
-
-  url <- paste0(
-    "https://www.lovb.com/teams/lovb-",
-    slug,
-    "-volleyball"
-  )
-
-  # First check internet connection
-  if (!curl::has_internet()) {
-    message("No internet connection.")
-    return(invisible(NULL))
-  }
-
-  tryCatch(
-    # Open selenider_session and URL
-    session <- selenider::selenider_session(
-      "chromote",
-      timeout = 10,
-      options = selenider::chromote_options(headless = TRUE)
-    ),
-    error = function(cnd) {
-      cli::cli_abort(
-        "Unable to proceed. Ensure Google Chrome and the R package `selenider` are installed."
-      )
+  # For previous years, get data from pre-existing datasets
+  current_year <- current_year()
+  tm <- team
+  if (year < current_year) {
+    if (level == "team") {
+      table <- lovb_team_data |>
+        dplyr::filter(.data$year == year & .data$team == tm)
+    } else {
+      table <- lovb_player_data |>
+        dplyr::filter(.data$year == year & .data$team == tm)
     }
-  )
-  selenider::open_url(url = url)
-  Sys.sleep(2)
+  } else { # For current year, scrape website
+    # Get team name slug for URL
+    if (team_lower %in% tolower(teams$name)) {
+      slug <- teams$slug[which(team_lower == tolower(teams$name))]
+    } else {
+      cli::cli_abort("'{team}' not found in the list of teams: {teams$city}")
+      return(invisible())
+    }
 
-  # Get page source
-  page_html <- selenider::get_page_source()
+    url <- paste0(
+      "https://www.lovb.com/teams/lovb-",
+      slug,
+      "-volleyball"
+    )
 
-  # Extract team or player stats
-  if (level == "team") {
-    table <- extract_lovb_team_stats(page_html) |>
-      dplyr::filter(.data$opponent != "Totals") |>
-      dplyr::mutate(year = year, team = team, .before = 1)
-  } else {
-    table <- extract_lovb_player_stats(page_html) |>
-      dplyr::filter(.data$player != "Totals") |>
-      dplyr::mutate(year = year, team = team, .before = 1)
+    # First check internet connection
+    if (!curl::has_internet()) {
+      message("No internet connection.")
+      return(invisible(NULL))
+    }
+
+    tryCatch(
+      # Open selenider_session and URL
+      session <- selenider::selenider_session(
+        "chromote",
+        timeout = 10,
+        options = selenider::chromote_options(headless = TRUE)
+      ),
+      error = function(cnd) {
+        cli::cli_abort(
+          "Unable to proceed. Ensure Google Chrome and the R package `selenider` are installed."
+        )
+      }
+    )
+    selenider::open_url(url = url)
+    Sys.sleep(2)
+
+    # Get page source
+    page_html <- selenider::get_page_source()
+
+    # Extract team or player stats
+    if (level == "team") {
+      table <- extract_lovb_team_stats(page_html) |>
+        dplyr::filter(.data$opponent != "Totals") |>
+        dplyr::mutate(year = year, team = team, .before = 1)
+    } else {
+      table <- extract_lovb_player_stats(page_html) |>
+        dplyr::filter(.data$player != "Totals") |>
+        dplyr::mutate(year = year, team = team, .before = 1)
+    }
   }
   return(table)
 }
