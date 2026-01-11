@@ -4,7 +4,7 @@
 \alias{mlv_stats}
 \title{Extract Data from Major League Volleyball Website}
 \usage{
-mlv_stats(team = NULL, year = NULL, level = NULL)
+mlv_stats(team = NULL, year = NULL, level = NULL, stored = TRUE)
 }
 \arguments{
 \item{team}{A character string specifying the team name or city. Accepts
@@ -17,6 +17,9 @@ statistics. Must be 2024 or later for LOVB or MLV and 2021 or later for AU.}
 
 \item{level}{A character string specifying whether to extract the "team" or individual
 "player" statistics. AU has no team statistics.}
+
+\item{stored}{A logical specifying whether to use stored data for previous years
+(TRUE is default) or force the function to scrape the website (FALSE)}
 }
 \value{
 A tibble containing team match-by-match or player season statistics.

@@ -4,11 +4,14 @@
 \alias{au_stats}
 \title{Extract Data from Athletes Unlimited Volleyball Website}
 \usage{
-au_stats(year = NULL)
+au_stats(year = NULL, stored = TRUE)
 }
 \arguments{
 \item{year}{A numeric value specifying the year for which to retrieve
 statistics. Must be 2024 or later for LOVB or MLV and 2021 or later for AU.}
+
+\item{stored}{A logical specifying whether to use stored data for previous years
+(TRUE is default) or force the function to scrape the website (FALSE)}
 }
 \value{
 A tibble containing team player season statistics.

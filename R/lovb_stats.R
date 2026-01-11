@@ -40,14 +40,22 @@ lovb_stats <- function(team = NULL, year = NULL, level = NULL) {
 
   # For previous years, get data from pre-existing datasets
   current_year <- current_year()
+  yr <- year
   tm <- team
-  if (year < current_year) {
+  if (yr < current_year) {
     if (level == "team") {
-      table <- lovb_team_data |>
-        dplyr::filter(.data$year == year & .data$team == tm)
+      table <- provolleyballr::lovb_team_data |>
+        dplyr::filter(.data$year == yr & .data$team == tm)
     } else {
-      table <- lovb_player_data |>
-        dplyr::filter(.data$year == year & .data$team == tm)
+      table <- provolleyballr::lovb_player_data |>
+        dplyr::filter(.data$year == yr & .data$team == tm)
+    }
+    if (nrow(table) == 0) {
+      cli::cli_warn(
+        "No data available for {stringr::str_to_title(team)} in {year}."
+      )
+    } else {
+      return(table)
     }
   } else {
     # For current year, scrape website
@@ -100,8 +108,8 @@ lovb_stats <- function(team = NULL, year = NULL, level = NULL) {
         dplyr::filter(.data$player != "Totals") |>
         dplyr::mutate(year = year, team = team, .before = 1)
     }
+    return(table)
   }
-  return(table)
 }
 
 

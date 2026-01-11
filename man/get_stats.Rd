@@ -4,7 +4,7 @@
 \alias{get_stats}
 \title{Extract Data from US Women's Professional Volleyball Websites}
 \usage{
-get_stats(league = NULL, team = NULL, year = NULL, level = NULL)
+get_stats(league = NULL, team = NULL, year = NULL, level = NULL, stored = TRUE)
 }
 \arguments{
 \item{league}{A character string specifying which league to retrieve. Must be
@@ -20,6 +20,9 @@ statistics. Must be 2024 or later for LOVB or MLV and 2021 or later for AU.}
 
 \item{level}{A character string specifying whether to extract the "team" or individual
 "player" statistics. AU has no team statistics.}
+
+\item{stored}{A logical specifying whether to use stored data for previous years
+(TRUE is default) or force the function to scrape the website (FALSE)}
 }
 \value{
 A tibble containing team match-by-match or player season statistics.

@@ -14,6 +14,8 @@
 #'   statistics. Must be 2024 or later for LOVB or MLV and 2021 or later for AU.
 #' @param level A character string specifying whether to extract the "team" or individual
 #' "player" statistics. AU has no team statistics.
+#' @param stored A logical specifying whether to use stored data for previous years
+#' (TRUE is default) or force the function to scrape the website (FALSE)
 #'
 #' @return A tibble containing team match-by-match or player season statistics.
 #'
@@ -38,9 +40,16 @@
 #' get_stats(league = "MLV", team = "Omaha", year = 2024, level = "player")
 #'
 #' @export
-get_stats <- function(league = NULL, team = NULL, year = NULL, level = NULL) {
+get_stats <- function(
+  league = NULL,
+  team = NULL,
+  year = NULL,
+  level = NULL,
+  stored = TRUE
+) {
   # Validate inputs
   check_match(name = "league", value = league, vec = c("AU", "LOVB", "MLV"))
+  check_logical(name = "stored", value = stored)
   if (league == "AU") {
     check_year(year = year, min = 2021)
   } else if (league == "LOVB") {
@@ -53,10 +62,10 @@ get_stats <- function(league = NULL, team = NULL, year = NULL, level = NULL) {
 
   # Apply league function
   if (league == "AU") {
-    au_stats(year = year)
+    au_stats(year = year, stored = stored)
   } else if (league == "LOVB") {
     lovb_stats(team = team, year = year, level = level)
   } else {
-    mlv_stats(team = team, year = year, level = level)
+    mlv_stats(team = team, year = year, level = level, stored = stored)
   }
 }
