@@ -8,9 +8,9 @@ test_that("group_stats returns proper data for AU player level", {
   )
   skip_on_cran()
   skip_on_ci()
-  skip_if_not(
-    interactive()
-  )
+  # skip_if_not(
+  #   interactive()
+  # )
 
   result <- group_stats(league = "AU", year = 2025)
   expect_s3_class(result, "data.frame")
@@ -29,9 +29,9 @@ test_that("group_stats returns proper data for LOVB team level", {
   )
   skip_on_cran()
   skip_on_ci()
-  skip_if_not(
-    interactive()
-  )
+  # skip_if_not(
+  #   interactive()
+  # )
 
   result <- group_stats(league = "LOVB", year = 2025, level = "team")
   expect_s3_class(result, "data.frame")
@@ -49,9 +49,9 @@ test_that("group_stats returns proper data for LOVB player level", {
   )
   skip_on_cran()
   skip_on_ci()
-  skip_if_not(
-    interactive()
-  )
+  # skip_if_not(
+  #   interactive()
+  # )
 
   result <- group_stats(league = "LOVB", year = 2025, level = "player")
   expect_s3_class(result, "data.frame")
@@ -69,9 +69,9 @@ test_that("group_stats returns proper data for MLV team level", {
   )
   skip_on_cran()
   skip_on_ci()
-  skip_if_not(
-    interactive()
-  )
+  # skip_if_not(
+  #   interactive()
+  # )
 
   result <- group_stats(league = "MLV", year = 2025, level = "team")
   expect_s3_class(result, "data.frame")
@@ -89,9 +89,9 @@ test_that("group_stats returns proper data for MLV player level", {
   )
   skip_on_cran()
   skip_on_ci()
-  skip_if_not(
-    interactive()
-  )
+  # skip_if_not(
+  #   interactive()
+  # )
 
   result <- group_stats(league = "MLV", year = 2025, level = "player")
   expect_s3_class(result, "data.frame")

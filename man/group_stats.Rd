@@ -4,7 +4,7 @@
 \alias{group_stats}
 \title{Get Statistics for All Teams in a League}
 \usage{
-group_stats(league = NULL, year = NULL, level = NULL)
+group_stats(league = NULL, year = NULL, level = NULL, stored = TRUE)
 }
 \arguments{
 \item{league}{A character string specifying which league to retrieve. Must be
@@ -15,6 +15,9 @@ statistics. Must be 2024 or later for LOVB or MLV and 2021 or later for AU.}
 
 \item{level}{A character string specifying whether to extract the "team" or individual
 "player" statistics. AU has no team statistics.}
+
+\item{stored}{A logical specifying whether to use stored data for previous years
+(TRUE is default) or force the function to scrape the website (FALSE)}
 }
 \value{
 A data frame containing statistics for all teams in the specified
