@@ -109,7 +109,7 @@ au_stats <- function(year = NULL, stored = TRUE) {
         player = stringr::str_split_fixed(.data$player, " ", 2)[, 2]
       ) |>
       dplyr::mutate(
-        dplyr::across(dplyr::where(is.character), ~ dplyr::na_if(.x, "–")),
+        dplyr::across(dplyr::where(is.character), ~ dplyr::na_if(.x, "\u2013")),
         dplyr::across("kills":"good_receptions", as.numeric)
       )
 
