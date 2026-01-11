@@ -1,6 +1,6 @@
 #' Extract Data from Major League Volleyball Website
 #'
-#' This function scrapes team match-by-match and player season statistics for 
+#' This function scrapes team match-by-match and player season statistics for
 #' Major League Volleyball (MLV) teams from the official website
 #' <https://provolleyball.com>.
 #'
@@ -170,7 +170,7 @@ mlv_stats <- function(team = NULL, year = NULL, level = NULL) {
       )
     }
 
-    selenider::close_session()
+    selenider::close_session(session)
 
     return(table)
   }
