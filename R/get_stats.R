@@ -1,6 +1,6 @@
 #' Extract Data from US Women's Professional Volleyball Websites
 #'
-#' This function scrapes team match-by-match and player season statistics for 
+#' This function scrapes team match-by-match and player season statistics for
 #' Athletes Unlimited (UA), League One Volleyball (LOVB), or Major League Volleyball (MLV)
 #' players and teams from the official websites.
 #'
@@ -50,7 +50,6 @@ get_stats <- function(league = NULL, team = NULL, year = NULL, level = NULL) {
     check_year(year = year, min = 2024)
     check_match(name = "level", value = level, vec = c("player", "team"))
   }
-  
 
   # Apply league function
   if (league == "AU") {
@@ -60,5 +59,4 @@ get_stats <- function(league = NULL, team = NULL, year = NULL, level = NULL) {
   } else {
     mlv_stats(team = team, year = year, level = level)
   }
-  
 }

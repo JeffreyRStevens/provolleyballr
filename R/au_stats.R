@@ -1,6 +1,6 @@
 #' Extract Data from Athletes Unlimited Volleyball Website
 #'
-#' This function scrapes player season statistics for Athletes Unlimited Volleyball (AU) 
+#' This function scrapes player season statistics for Athletes Unlimited Volleyball (AU)
 #' players from the official AU website
 #' <https://auprosports.com/volleyball>.
 #'
@@ -21,13 +21,11 @@
 #'
 #' @export
 au_stats <- function(year = NULL) {
-
   # Validate inputs
   check_year(year = year, min = 2021)
 
   # Convert year to character
   year_option_text <- paste(year, "Volleyball")
-
 
   url <- "https://auprosports.com/volleyball/stats/#season"
 
@@ -54,39 +52,59 @@ au_stats <- function(year = NULL) {
   Sys.sleep(2)
 
   # Select year
-  s(".css-fyz21e-singleValue") |> 
+  s(".css-fyz21e-singleValue") |>
     selenider::elem_click()
-   if (year == 2024) {
-  s("input") |> 
-    selenider::elem_send_keys(selenider::keys$up, selenider::keys$enter) 
+  if (year == 2024) {
+    s("input") |>
+      selenider::elem_send_keys(selenider::keys$up, selenider::keys$enter)
   } else if (year == 2023) {
-    s("input") |> 
-    selenider::elem_send_keys(selenider::keys$up, selenider::keys$up, selenider::keys$enter) 
+    s("input") |>
+      selenider::elem_send_keys(
+        selenider::keys$up,
+        selenider::keys$up,
+        selenider::keys$enter
+      )
   } else if (year == 2022) {
-    s("input") |> 
-    selenider::elem_send_keys(selenider::keys$up, selenider::keys$up, selenider::keys$up, selenider::keys$enter) 
+    s("input") |>
+      selenider::elem_send_keys(
+        selenider::keys$up,
+        selenider::keys$up,
+        selenider::keys$up,
+        selenider::keys$enter
+      )
   } else if (year == 2021) {
-    s("input") |> 
-    selenider::elem_send_keys(selenider::keys$up, selenider::keys$up, selenider::keys$up, selenider::keys$up, selenider::keys$enter) 
+    s("input") |>
+      selenider::elem_send_keys(
+        selenider::keys$up,
+        selenider::keys$up,
+        selenider::keys$up,
+        selenider::keys$up,
+        selenider::keys$enter
+      )
   }
-  
+
   Sys.sleep(2)
-  
+
   # Get page source
-  table <- selenider::get_page_source() |> 
-    rvest::html_element(css = '#block-stats-root > div.table-wrap > div > div.relative.css-rfns5p-Table > div.table-overflow.css-1r97v5e-Table > table') |> 
+  table <- selenider::get_page_source() |>
+    rvest::html_element(
+      css = '#block-stats-root > div.table-wrap > div > div.relative.css-rfns5p-Table > div.table-overflow.css-1r97v5e-Table > table'
+    ) |>
     rvest::html_table()
   table <- table[, 1:24]
   colnames(table) <- colnames(provolleyballr::au_player_data)[-1]
-  table <- table |> 
-    dplyr::filter(!is.na(rank)) |> 
-    dplyr::mutate(year = as.integer(year), .before = 1) |> 
-    dplyr::mutate(player = stringr::str_split_fixed(.data$player, " ", 2)[, 2])
+  table <- table |>
+    dplyr::filter(!is.na(rank)) |>
+    dplyr::mutate(year = as.integer(year), .before = 1) |>
+    dplyr::mutate(
+      player = stringr::str_split_fixed(.data$player, " ", 2)[, 2]
+    ) |>
+    dplyr::mutate(
+      dplyr::across(where(is.character), ~ na_if(.x, "–")),
+      dplyr::across(kills:good_receptions, as.numeric)
+    )
 
   selenider::close_session()
 
   return(table)
 }
-
-
-
