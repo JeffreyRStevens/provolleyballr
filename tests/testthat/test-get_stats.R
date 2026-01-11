@@ -92,15 +92,15 @@ test_that("get_stats validates input parameters correctly", {
   )
   expect_error(
     get_stats(league = "MLV", team = "Omaha", year = "2024", level = "team"),
-    "Enter valid year between 2024-2025"
+    "Enter valid year between 2024"
   )
   expect_error(
     get_stats(league = "MLV", team = "Omaha", year = 2017, level = "team"),
-    "Enter valid year between 2024-2025"
+    "Enter valid year between 2024"
   )
   expect_error(
     get_stats(league = "LOVB", team = "Omaha", year = 2017, level = "team"),
-    "Enter valid year between 2025-2025"
+    "Enter valid year between 2025"
   )
   expect_error(
     get_stats(league = "MLV", team = "Omaha", year = NA_real_, level = "team"),

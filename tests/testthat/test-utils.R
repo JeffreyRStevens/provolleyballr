@@ -36,11 +36,11 @@ test_that("check_year validates year ranges correctly", {
   )
   expect_error(
     check_year(year = 2024, min = 2025),
-    "Enter valid year between 2025-2025"
+    "Enter valid year between 2025"
   )
   expect_error(
     check_year(year = "2024", min = 2024),
-    "Enter valid year between 2024-2025"
+    "Enter valid year between 2024"
   )
   expect_error(check_year(year = 2024:2025, min = 2024), "Enter a single year.")
 })

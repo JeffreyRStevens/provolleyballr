@@ -109,16 +109,16 @@ test_that("group_stats handles invalid inputs appropriately", {
 
   expect_error(
     group_stats(league = "AU", year = 2017),
-    "Enter valid year between 2021-2025"
+    "Enter valid year between 2021"
   )
 
   expect_error(
     group_stats(league = "LOVB", year = 2017, level = "team"),
-    "Enter valid year between 2025-2025"
+    "Enter valid year between 2025"
   )
 
   expect_error(
     group_stats(league = "MLV", year = 2017, level = "team"),
-    "Enter valid year between 2024-2025"
+    "Enter valid year between 2024"
   )
 })

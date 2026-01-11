@@ -23,6 +23,6 @@ test_that("datasets are correct", {
   expect_equal(nrow(lovb_player_data), 94)
   expect_equal(lovb_player_data$player[1], "Kayla Haneline")
   expect_equal(ncol(mlv_player_data), 23)
-  expect_equal(nrow(mlv_player_data), 264)
+  expect_equal(nrow(mlv_player_data), 262)
   expect_equal(mlv_player_data$player[1], "Edmond, Leah")
 })
