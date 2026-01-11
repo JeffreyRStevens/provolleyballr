@@ -15,10 +15,10 @@ experimental](man/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.o
 The
 [`{provolleyballr}`](https://jeffreyrstevens.github.io/provolleyballr) R
 package provides tools for scraping match statistics and player data
-from the Major League (MLV) website <https://provolleyball.com>
-(formerly the Pro Volleyball Federation), the League One Volleyball
-website <https://lovb.com>, and the Athletes Unlimited (UA) website
-<https://auprosports.com/volleyball>.
+from [Athletes Unlimited](%3Chttps://auprosports.com/volleyball),
+[League One Volleyball (LOVB)](https://lovb.com) and [Major League
+Volleyball (MLV)](https://provolleyball.com) (formerly the Pro
+Volleyball Federation) websites.
 
 ## Installation
 
@@ -67,7 +67,7 @@ mlv_teams
 #>           city     mascot              name              slug first_year
 #> 1      Atlanta       Vibe      Atlanta Vibe      atlanta-vibe       2024
 #> 2     Columbus       Fury     Columbus Fury     columbus-fury       2024
-#> 3       Dallas       <NA>            Dallas            dallas       2026
+#> 3       Dallas      Pulse      Dallas Pulse      dallas-pulse       2026
 #> 4 Grand Rapids       Rise Grand Rapids Rise grand-rapids-rise       2024
 #> 5         Indy     Ignite       Indy Ignite       indy-ignite       2025
 #> 6        Omaha Supernovas  Omaha Supernovas  omaha-supernovas       2024
@@ -83,32 +83,209 @@ a particular league:
 
 ``` r
 # Get team match statistics for Omaha Supernovas in 2024
-get_stats(league = "LOVB", team = "Austin", year = 2025, level = "team")
+get_stats(league = "LOVB", team = "Omaha", year = 2025, level = "team")
+#>   year  team opponent       date points hitting_efficiency kill_percentage
+#> 1 2025 Omaha   Austin 01/07/2026     13              0.333              50
+#>   kills attack_errors attacks_blocked attack_attempts in_system_percentage
+#> 1    12             3               1              24                   50
+#>   reception_errors reception_attempts service_aces service_errors
+#> 1                1                 16            0              2
+#>   opponent_in_system_percentage service_attempts blocks block_touch_percentage
+#> 1                          64.3               14      1                   42.9
+#>   digs dig_percentage assists setting_efficiency
+#> 1   14           87.5      12              0.333
 
 # Get individual player statistics
-get_stats(league = "MLV", team = "Omaha", year = 2024, level = "player")
+get_stats(league = "MLV", team = "Omaha", year = 2025, level = "player")
+#> # A tibble: 15 × 23
+#>     year team  number player    sets_played matches_played points points_per_set
+#>    <dbl> <chr>  <dbl> <chr>           <dbl>          <dbl>  <dbl>          <dbl>
+#>  1  2025 Omaha      1 Valentin…          91             28     56           0.62
+#>  2  2025 Omaha      4 Vazquez …           1              1      0           0   
+#>  3  2025 Omaha      5 Nunevill…         101             28    413           4.09
+#>  4  2025 Omaha      6 Wait, Ke…          10              6      2           0.2 
+#>  5  2025 Omaha      8 Cooper, …          76             25    291           3.83
+#>  6  2025 Omaha      9 Podraza,…          33             15     24           0.73
+#>  7  2025 Omaha     10 Gómez, C…          90             26      0           0   
+#>  8  2025 Omaha     11 Payne, K…          73             24    203           2.78
+#>  9  2025 Omaha     14 Batenhor…          44             17    136           3.09
+#> 10  2025 Omaha     17 Awoleye,…          25             11     43           1.72
+#> 11  2025 Omaha     20 Holder, …          33             13      0           0   
+#> 12  2025 Omaha     22 Krause, …          50             22     11           0.22
+#> 13  2025 Omaha     23 Hord, Ka…          93             27    191           2.05
+#> 14  2025 Omaha     27 Londot, …          46             21    160           3.48
+#> 15  2025 Omaha     28 Caffey, …          82             25    173           2.11
+#> # ℹ 15 more variables: kills <dbl>, kills_per_set <dbl>, attack_errors <dbl>,
+#> #   attack_attempts <dbl>, hitting_efficiency <dbl>, assists <dbl>,
+#> #   assists_per_set <dbl>, service_aces <dbl>, service_aces_per_set <dbl>,
+#> #   serive_errors <dbl>, service_errors_per_set <dbl>, digs <dbl>,
+#> #   digs_per_set <dbl>, blocks <dbl>, blocks_per_set <dbl>
 ```
 
-### Working with Included Datasets
-
-The package includes pre-scraped datasets (using `group_stats()`
-aggregating function) for analysis that includes all AU player data from
-2021-2025 and all LOVB and MLV team and player data for 2024-2025.
-
-- `lovb_player_data`
-
-- `lovb_team_data`
-
-- `mlv_player_data`
-
-- `mlv_team_data`
-
-For more information, see the package vignette:
+Or use the league-specific functions for AU, LOVB, and MLV using
+`au_stats()`, `lovb_stats()`, and `mlv_stats()` respectively. For player
+data, AU only needs a year, and LOVB and MLV need the team name and
+`level = "player"`.
 
 ``` r
-# View the analysis vignette
-vignette("get-started", package = "provolleyballr")
+au_stats(year = 2025)
+lovb_stats(team = "Omaha", year = 2025, level = "player")
+mlv_stats(team = "Omaha", year = 2025, level = "player")
 ```
+
+To get team data for LOVB and MLV, use `lovb_stats()` and `mlv_stats()`
+respectively. For both functions, simply include the team name and year
+and set `level = "team"`.
+
+``` r
+lovb_stats(team = "Omaha", year = 2025, level = "team")
+mlv_stats(team = "Omaha", year = 2025, level = "team")
+```
+
+### Available Data
+
+The package includes five main datasets created with the `group_stats()`
+function using data: player season data from AU (2021-2025) and player
+season and team match data for AU, LOVB, and MLV (2024-2025).
+
+``` r
+# Load AU individual player data  
+head(au_player_data)
+#> # A tibble: 6 × 25
+#>    year  rank player        points sets_played kills kills_per_set attack_errors
+#>   <int> <int> <chr>          <int>       <int> <dbl>         <dbl>         <dbl>
+#> 1  2021     1 Larson, Jord…   4569          45   213          4.73            79
+#> 2  2021     2 De La Cruz-M…   3690          45   193          4.29            51
+#> 3  2021     3 King, Brie      3675          45    20          0.44             3
+#> 4  2021     4 Cruz, Aury      3582          42   171          4.07            54
+#> 5  2021     5 Lowe, Karsta    3566          45   230          5.11            74
+#> 6  2021     6 McClendon, D…   3127          44   118          2.68            58
+#> # ℹ 17 more variables: attack_attempts <dbl>, kill_percentage <dbl>,
+#> #   assists <dbl>, assists_per_set <dbl>, setting_errors <dbl>,
+#> #   service_aces <dbl>, service_errors <dbl>, service_aces_per_set <dbl>,
+#> #   total_reception_attempts <dbl>, reception_errors <dbl>,
+#> #   positive_reception_percentage <dbl>, digs <dbl>, digs_per_set <dbl>,
+#> #   blocks <dbl>, blocks_per_set <dbl>, block_assists <dbl>,
+#> #   good_receptions <dbl>
+
+# Load LOVB individual player data  
+head(lovb_player_data)
+#>   year   team number           player points matches_started sets_started
+#> 1 2025 Austin     11   Bella Bergmark      9               0            3
+#> 2 2025 Austin     22    Bailey Miller      0               0            0
+#> 3 2025 Austin     13 Juliann Faucette      1               0            0
+#> 4 2025 Austin     10       Zoe Jarvis      0               0            0
+#> 5 2025 Austin      3      Carli Lloyd      0               0            0
+#> 6 2025 Austin      5     Molly McCage      3               1            2
+#>   sets_played hitting_efficiency kill_percentage kills attack_errors
+#> 1           4              0.778            77.8     7             0
+#> 2           0              0.000             0.0     0             0
+#> 3           3              0.000            12.5     1             1
+#> 4           3              0.000             0.0     0             0
+#> 5           3              0.000             0.0     0             0
+#> 6           2              0.286            42.9     3             1
+#>   attacks_blocked attack_attempts in_system_percentage reception_errors
+#> 1               0               9                  0.0                0
+#> 2               0               0                  0.0                0
+#> 3               0               8                  0.0                0
+#> 4               0               0                 33.3                1
+#> 5               0               0                  0.0                0
+#> 6               0               7                  0.0                0
+#>   reception_attempts service_aces service_errors opponent_in_system_percentage
+#> 1                  2            0              1                          50.0
+#> 2                  0            0              0                           0.0
+#> 3                  0            0              0                           0.0
+#> 4                 15            0              0                         100.0
+#> 5                  0            0              0                          33.3
+#> 6                  2            0              1                          66.7
+#>   service_attempts blocks block_touch_percentage digs dig_percentage assists
+#> 1               16      2                   36.4    3             75       0
+#> 2                0      0                    0.0    0              0       0
+#> 3                0      0                   25.0    0              0       0
+#> 4                1      0                    0.0    7             70       2
+#> 5                3      0                    0.0    1            100       4
+#> 6                3      0                   20.0    1             50       0
+#>   setting_efficiency
+#> 1              0.000
+#> 2              0.000
+#> 3              0.000
+#> 4              0.200
+#> 5              0.125
+#> 6              0.000
+
+# Load LOVB team match data
+head(lovb_team_data)
+#>   year      team  opponent       date points hitting_efficiency kill_percentage
+#> 1 2025    Austin  Nebraska 01/07/2026     12              0.360              40
+#> 2 2025   Houston Salt Lake 01/08/2026      0              0.000               0
+#> 3 2025   Madison Salt Lake 01/10/2026      0              0.000               0
+#> 4 2025  Nebraska    Austin 01/07/2026     13              0.333              50
+#> 5 2025     Omaha    Austin 01/07/2026     13              0.333              50
+#> 6 2025 Salt Lake   Houston 01/08/2026      0              0.000               0
+#>   kills attack_errors attacks_blocked attack_attempts in_system_percentage
+#> 1    10             0               1              25                   75
+#> 2     0             0               0               0                    0
+#> 3     0             0               0               0                    0
+#> 4    12             3               1              24                   50
+#> 5    12             3               1              24                   50
+#> 6     0             0               0               0                    0
+#>   reception_errors reception_attempts service_aces service_errors
+#> 1                0                 12            1              1
+#> 2                0                  0            0              0
+#> 3                0                  0            0              0
+#> 4                1                 16            0              2
+#> 5                1                 16            0              2
+#> 6                0                  0            0              0
+#>   opponent_in_system_percentage service_attempts blocks block_touch_percentage
+#> 1                          47.1               17      1                   40.0
+#> 2                           0.0                0      0                    0.0
+#> 3                           0.0                0      0                    0.0
+#> 4                          64.3               14      1                   42.9
+#> 5                          64.3               14      1                   42.9
+#> 6                           0.0                0      0                    0.0
+#>   digs dig_percentage assists setting_efficiency
+#> 1    6           60.0       9              0.364
+#> 2    0            0.0       0              0.000
+#> 3    0            0.0       0              0.000
+#> 4   14           87.5      12              0.333
+#> 5   14           87.5      12              0.333
+#> 6    0            0.0       0              0.000
+
+# Load MLV individual player data  
+head(mlv_player_data)
+#> # A tibble: 6 × 23
+#>    year team    number player   sets_played matches_played points points_per_set
+#>   <int> <chr>    <dbl> <chr>          <dbl>          <dbl>  <dbl>          <dbl>
+#> 1  2024 Atlanta     NA Edmond,…          89             24    438           4.92
+#> 2  2024 Atlanta     NA Wade, G…          29             11     71           2.45
+#> 3  2024 Atlanta     NA Nwokolo…           0              0      0           0   
+#> 4  2024 Atlanta      1 Member-…          67             22    185           2.76
+#> 5  2024 Atlanta      3 Fanning…          87             24    230           2.64
+#> 6  2024 Atlanta      7 Lazarev…          59             17    278           4.71
+#> # ℹ 15 more variables: kills <dbl>, kills_per_set <dbl>, attack_errors <dbl>,
+#> #   attack_attempts <dbl>, hitting_efficiency <dbl>, assists <dbl>,
+#> #   assists_per_set <dbl>, service_aces <dbl>, service_aces_per_set <dbl>,
+#> #   serive_errors <dbl>, service_errors_per_set <dbl>, digs <dbl>,
+#> #   digs_per_set <dbl>, blocks <dbl>, blocks_per_set <dbl>
+
+# Load MLV team match data
+head(mlv_team_data)
+#> # A tibble: 6 × 15
+#>    year team    date     opponent result kills assists service_aces blocks   out
+#>   <int> <chr>   <chr>    <chr>    <chr>  <int>   <int>        <int>  <int> <int>
+#> 1  2024 Atlanta 01/24/2… atOmaha… W         62      58            2     16    49
+#> 2  2024 Atlanta 01/26/2… atOrlan… W         52      46            5     13    39
+#> 3  2024 Atlanta 02/01/2… vsSan D… W         43      40            6      9    28
+#> 4  2024 Atlanta 02/09/2… vsGrand… L         52      52            2      9    43
+#> 5  2024 Atlanta 02/12/2… vsOrlan… W         60      54            6     16    49
+#> 6  2024 Atlanta 02/18/2… atGrand… L         66      62            3     11    48
+#> # ℹ 5 more variables: attack_attempts <int>, hitting_efficiency <dbl>,
+#> #   digs <int>, digs_per_set <dbl>, sets_played <int>
+```
+
+These datasets are also directly available for download as CSV files: \*
+[au_player_data]() \* [lovb_player_data]() \* [lovb_team_data]() \*
+[mlv_player_data]() \* [mlv_team_data]()
 
 ## Data Dictionary
 
