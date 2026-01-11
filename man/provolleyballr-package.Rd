@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Tools for scraping match statistics and player data from the Major League (MLV) website \url{https://provolleyball.com}, the League One Volleyball website \url{https://lovb.com}, and the Athletes Unlimited (UA) website \url{https://auprosports.com/volleyball}.
+Tools for scraping match statistics and player data from the Athletes Unlimited (UA) website \url{https://auprosports.com/volleyball}, the League One Volleyball website \url{https://lovb.com}, and the Major League (MLV) website \url{https://provolleyball.com}.
 }
 \seealso{
 Useful links:

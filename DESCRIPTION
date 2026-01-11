@@ -7,7 +7,7 @@ Authors@R:
     role = c("aut", "cre", "cph"),
     comment = c(ORCID = "0000-0003-2375-1360"))
 Maintainer: Jeffrey R. Stevens <jeffrey.r.stevens@protonmail.com>
-Description: Tools for scraping match statistics and player data from the Major League (MLV) website <https://provolleyball.com>, the League One Volleyball website <https://lovb.com>, and the Athletes Unlimited (UA) website <https://auprosports.com/volleyball>.
+Description: Tools for scraping match statistics and player data from the Athletes Unlimited (UA) website <https://auprosports.com/volleyball>, the League One Volleyball website <https://lovb.com>, and the Major League (MLV) website <https://provolleyball.com>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Depends: 
