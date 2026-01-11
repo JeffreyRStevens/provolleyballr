@@ -24,8 +24,14 @@
 #' mlv_team_data <- group_stats(league = "MLV", year = 2024:2025, level = "team")
 #' mlv_player_data <- group_stats(league = "MLV", year = 2024:2025, level = "player")
 #' @export
-group_stats <- function(league = NULL, year = NULL, level = NULL) {
+group_stats <- function(
+  league = NULL,
+  year = NULL,
+  level = NULL,
+  stored = TRUE
+) {
   check_match(name = "league", value = league, vec = c("AU", "LOVB", "MLV"))
+  check_logical(name = "stored", value = stored)
   if (league == "AU") {
     check_year(min(year), min = 2021)
   } else if (league == "LOVB") {
@@ -56,7 +62,13 @@ group_stats <- function(league = NULL, year = NULL, level = NULL) {
   purrr::map2(
     all_teams$teams,
     all_teams$years,
-    ~ get_stats(league = league, team = .x, year = .y, level = level)
+    ~ get_stats(
+      league = league,
+      team = .x,
+      year = .y,
+      level = level,
+      stored = stored
+    )
   ) |>
     purrr::list_rbind()
 }

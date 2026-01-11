@@ -61,6 +61,10 @@ test_that("get_stats validates input parameters correctly", {
     get_stats(league = c("LOVB", "MLV"), year = 2024, level = "team"),
     "Enter single value for league"
   )
+  expect_error(
+    get_stats(league = "LOVB", year = 2024, level = "team", stored = 1),
+    "`stored` must be a logical "
+  )
 
   # Test team parameter validation
   expect_error(
@@ -86,6 +90,10 @@ test_that("get_stats validates input parameters correctly", {
   )
 
   # Test year parameter validation
+  expect_error(
+    get_stats(league = "AU"),
+    "Enter valid year."
+  )
   expect_error(
     get_stats(league = "MLV", team = "Omaha", level = "team"),
     "Enter valid year."
@@ -142,6 +150,42 @@ test_that("get_stats warns for invalid values", {
     get_stats(league = "MLV", "Indy", year = 2024, level = "team"),
     "No data available for Indy in 2024"
   )
+})
+
+# AU
+test_that("get_stats returns proper data structure for AU", {
+  skip_if_not_installed("selenider")
+  skip_if_not(
+    nzchar(Sys.which("google-chrome")) || nzchar(Sys.which("chromium-browser")),
+    "Chrome not available"
+  )
+  skip_on_cran()
+  skip_on_ci()
+  # skip("Requires internet connection and may be slow")
+
+  # This test does not require web scraping
+  result <- get_stats(
+    league = "AU",
+    year = 2025
+  )
+  expect_s3_class(result, "data.frame")
+  expect_true(ncol(result) == 25) # Expect multiple columns
+  expect_true(nrow(result) == 44) # Expect some data
+  expect_true(all(
+    c("rank", "player", "kills_per_set", "points") %in% names(result)
+  ))
+  # This test would require actual web scraping
+  result <- get_stats(
+    league = "AU",
+    year = 2025,
+    stored = FALSE
+  )
+  expect_s3_class(result, "data.frame")
+  expect_true(ncol(result) == 25) # Expect multiple columns
+  expect_true(nrow(result) == 44) # Expect some data
+  expect_true(all(
+    c("rank", "player", "kills_per_set", "points") %in% names(result)
+  ))
 })
 
 # LOVB

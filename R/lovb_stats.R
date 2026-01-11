@@ -60,12 +60,7 @@ lovb_stats <- function(team = NULL, year = NULL, level = NULL) {
   } else {
     # For current year, scrape website
     # Get team name slug for URL
-    if (team_lower %in% tolower(teams$name)) {
-      slug <- teams$slug[which(team_lower == tolower(teams$name))]
-    } else {
-      cli::cli_abort("'{team}' not found in the list of teams: {teams$city}")
-      return(invisible())
-    }
+    slug <- teams$slug[which(team_lower == tolower(teams$name))]
 
     url <- paste0(
       "https://www.lovb.com/teams/lovb-",
@@ -228,7 +223,7 @@ extract_lovb_player_stats <- function(page_html) {
   ) |>
     dplyr::mutate(
       dplyr::across(dplyr::everything(), ~ sub("\\%", "", x = .x)),
-      dplyr::across(!.data$player, as.numeric)
+      dplyr::across(!"player", as.numeric)
     )
 
   selenider::close_session()
@@ -332,7 +327,7 @@ extract_lovb_team_stats <- function(page_html) {
   ) |>
     dplyr::mutate(
       dplyr::across(dplyr::everything(), ~ sub("\\%", "", x = .x)),
-      dplyr::across(!c(.data$opponent, .data$date), as.numeric)
+      dplyr::across(!c("opponent", "date"), as.numeric)
     )
 
   selenider::close_session()
