@@ -442,6 +442,16 @@ Statistics Guide](https://provolleyball.com/statistics-guide).
 Please report bugs and suggest features on [GitHub
 Issues](https://github.com/JeffreyRStevens/provolleyballr/issues).
 
+## Citation
+
+To cite
+[`{provolleyballr}`](https://jeffreyrstevens.github.io/provolleyballr/),
+use:
+
+Stevens JR (2026). *Extract Data from US Women’s Professional Volleyball
+Websites*. R package version 0.1.0,
+<https://github.com/JeffreyRStevens/provolleyballr>.
+
 ## License
 
 This package is licensed under the MIT License. See `LICENSE` file for
@@ -449,9 +459,18 @@ details.
 
 ## Disclaimer
 
-This package scrapes data from the official League One Volleyball and
-Pro Volleyball Federation websites. Please use responsibly and in
-accordance with the websites’ terms of service.
+This package scrapes data from the official Athletes Unlimited, League
+One Volleyball and Major League Volleyball websites. Please use
+responsibly and in accordance with the websites’ terms of service.
+
+## Acknowledgments
+
+Many thanks to [Bill Petti](https://github.com/BillPetti) for making the
+code for NCAA stats extraction freely available in the
+[`{baseballr}`](https://billpetti.github.io/baseballr/) package.
+
+The volleyball background in the logo was designed by
+[Freepik](https://www.freepik.com/free-vector/volleyball-grey-gradient_59539214.htm).
 
 This package was developed with the assistance of [Claude Sonnet
 4](https://www.anthropic.com/claude).
