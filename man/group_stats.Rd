@@ -33,6 +33,7 @@ This function retrieves statistics for all teams in a specified league
 \examples{
 \dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 # Get all team statistics for both leagues
+au_team_data <- group_stats(league = "AU", year = 2021:2025)
 lovb_team_data <- group_stats(league = "LOVB", year = 2025, level = "team")
 lovb_player_data <- group_stats(league = "LOVB", year = 2025, level = "player")
 mlv_team_data <- group_stats(league = "MLV", year = 2024:2025, level = "team")
