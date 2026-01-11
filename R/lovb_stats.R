@@ -49,7 +49,8 @@ lovb_stats <- function(team = NULL, year = NULL, level = NULL) {
       table <- lovb_player_data |>
         dplyr::filter(.data$year == year & .data$team == tm)
     }
-  } else { # For current year, scrape website
+  } else {
+    # For current year, scrape website
     # Get team name slug for URL
     if (team_lower %in% tolower(teams$name)) {
       slug <- teams$slug[which(team_lower == tolower(teams$name))]

@@ -27,7 +27,7 @@
 group_stats <- function(league = NULL, year = NULL, level = NULL) {
   check_match(name = "league", value = league, vec = c("AU", "LOVB", "MLV"))
   if (league == "AU") {
-    check_year(min(year), min = 2021) 
+    check_year(min(year), min = 2021)
   } else if (league == "LOVB") {
     check_year(min(year), min = 2025)
   } else {
@@ -37,7 +37,7 @@ group_stats <- function(league = NULL, year = NULL, level = NULL) {
     teams <- provolleyballr::lovb_teams$name
   } else if (league == "MLV") {
     teams <- provolleyballr::mlv_teams$city
-  } else  {
+  } else {
     teams <- "none"
   }
   all_teams <- data.frame(
@@ -48,7 +48,7 @@ group_stats <- function(league = NULL, year = NULL, level = NULL) {
     dplyr::filter(.data$teams != "Dallas" | .data$years >= 2026) |>
     dplyr::filter(
       .data$teams != "Omaha" | league != "LOVB" | .data$years == 2025
-    ) |> 
+    ) |>
     dplyr::filter(
       .data$teams != "Nebraska" | league != "LOVB" | .data$years >= 2026
     )
@@ -59,4 +59,4 @@ group_stats <- function(league = NULL, year = NULL, level = NULL) {
     ~ get_stats(league = league, team = .x, year = .y, level = level)
   ) |>
     purrr::list_rbind()
-  }
+}
