@@ -1,9 +1,9 @@
 # Create PVF teams dataset for the package
-pvf_teams <- data.frame(
+mlv_teams <- data.frame(
   name = c(
     "Atlanta Vibe",
     "Columbus Fury",
-    "Dallas",
+    "Dallas Pulse",
     "Grand Rapids Rise",
     "Indy Ignite",
     "Omaha Supernovas",
@@ -21,16 +21,18 @@ pvf_teams <- data.frame(
     slug = tolower(gsub(" ", "-", name)),
     first_year = c(rep(2024, 2), 2026, 2024, 2025, rep(2024, 4))
   )
-usethis::use_data(pvf_teams, overwrite = TRUE)
+usethis::use_data(mlv_teams, overwrite = TRUE)
 
 # Create PVF player data
-pvf_player_data <- group_stats(
-  league = "PVF",
+mlv_player_data <- group_stats(
+  league = "MLV",
   year = 2024:2025,
   level = "player"
 )
-usethis::use_data(pvf_player_data, overwrite = TRUE)
+write.csv(mlv_player_data, "data-csv/mlv_player_data.csv", row.names = FALSE)
+usethis::use_data(mlv_player_data, overwrite = TRUE)
 
 # Create PVF team data
-pvf_team_data <- group_stats(league = "PVF", year = 2024:2025, level = "team")
-usethis::use_data(pvf_team_data, overwrite = TRUE)
+mlv_team_data <- group_stats(league = "MLV", year = 2024:2025, level = "team")
+write.csv(mlv_team_data, "data-csv/mlv_team_data.csv", row.names = FALSE)
+usethis::use_data(mlv_team_data, overwrite = TRUE)

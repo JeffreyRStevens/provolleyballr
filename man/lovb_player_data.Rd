@@ -52,11 +52,12 @@ head(lovb_player_data)
 }
 \seealso{
 Other datasets: 
+\code{\link{au_player_data}},
 \code{\link{lovb_team_data}},
 \code{\link{lovb_teams}},
-\code{\link{pvf_player_data}},
-\code{\link{pvf_team_data}},
-\code{\link{pvf_teams}}
+\code{\link{mlv_player_data}},
+\code{\link{mlv_team_data}},
+\code{\link{mlv_teams}}
 }
 \concept{datasets}
 \keyword{datasets}

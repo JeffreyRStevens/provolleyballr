@@ -1,3 +1,45 @@
+#' Athletes Unlimited Individual Player Statistics
+#'
+#' A dataset containing individual player season statistics for Athletes Unlimited (UA) players
+#' for the 2021-2025 seasons.
+#'
+#' @format A data frame with 220 rows and 25 variables:
+#' \describe{
+#'   \item{year}{Season year}
+#'   \item{rank}{Player rank}
+#'   \item{player}{Player name}
+#'   \item{points}{Total points achieived}
+#'   \item{sets_played}{Sets played}
+#'   \item{kills}{Kills - successful attacks}
+#'   \item{kills_per_set}{Kills per set}
+#'   \item{attack_errors}{Attack Errors}
+#'   \item{attack_attempts}{Total attack attempts}
+#'   \item{kill_percentage}{Kill percentage}
+#'   \item{assists}{Assists - sets that lead directly to a kill}
+#'   \item{assists_per_set}{Assists per set}
+#'   \item{setting_errors}{Setting errors}
+#'   \item{service_aces}{Service Aces - serves that result directly in a point}
+#'   \item{service_errors}{Service errors}
+#'   \item{service_aces_per_set}{Service aces per set}
+#'   \item{total_reception_attempts}{Total reception attempts}
+#'   \item{reception_errors}{Reception errors}
+#'   \item{positive_reception_percentage}{Percentage of reception attempts that are either positive or perfect}
+#'   \item{digs}{Digs - successful defensive plays}
+#'   \item{digs_per_set}{Digs per set}
+#'   \item{blocks}{Blocks - successful defensive plays at the net}
+#'   \item{blocks_per_set}{Blocks per set}
+#'   \item{block_assists}{Block assists - two- or three-person blocks}
+#'   \item{good_receptions}{Number of positive receptions}
+#' }
+#'
+#' @family datasets
+#'
+#' @examples
+#' head(au_player_data)
+#'
+#' @source \url{https://auprosports.com/volleyball}
+"au_player_data"
+
 #' League One Volleyball Teams
 #'
 #' A dataset containing information about League One Volleyball (LOVB) teams,
@@ -107,9 +149,9 @@
 #' @source \url{https://lovb.com}
 "lovb_player_data"
 
-#' Pro Volleyball Federation Teams
+#' Major League Volleyball Teams
 #'
-#' A dataset containing information about Pro Volleyball Federation (PVF) teams,
+#' A dataset containing information about Major League Volleyball (MLV) teams,
 #' including team names, cities, mascots, URL slugs, and first year used for web scraping.
 #'
 #' @format A data frame with 8 rows and 5 variables:
@@ -117,25 +159,25 @@
 #'   \item{city}{Team city name}
 #'   \item{mascot}{Team mascot name}
 #'   \item{name}{Full team name (city + mascot)}
-#'   \item{slug}{URL slug used in PVF website URLs}
-#'   \item{first_year}{Year that team started in PVF}
+#'   \item{slug}{URL slug used in MLV website URLs}
+#'   \item{first_year}{Year that team started in MLV}
 #' }
 #'
 #' @details This dataset is used internally by the package functions to map
 #' user-provided team names to the appropriate URL slugs needed for web scraping
-#' the PVF website.
+#' the MLV website.
 #'
 #' @family datasets
 #'
 #' @examples
-#' pvf_teams
+#' mlv_teams
 #'
 #' @source \url{https://provolleyball.com}
-"pvf_teams"
+"mlv_teams"
 
-#' Pro Volleyball Federation Team Match Statistics
+#' Major League Volleyball Team Match Statistics
 #'
-#' A dataset containing team match-by-match statistics for Pro Volleyball Federation (PVF) teams
+#' A dataset containing team match-by-match statistics for Major League Volleyball (MLV) teams
 #' for the 2024-2025 seasons.
 #'
 #' @format A data frame with 392 rows and 15 variables:
@@ -160,14 +202,14 @@
 #' @family datasets
 #'
 #' @examples
-#' head(pvf_team_data)
+#' head(mlv_team_data)
 #'
 #' @source \url{https://provolleyball.com}
-"pvf_team_data"
+"mlv_team_data"
 
-#' Pro Volleyball Federation Individual Player Statistics
+#' Major League Volleyball Individual Player Statistics
 #'
-#' A dataset containing individual player season statistics for Pro Volleyball Federation (PVF) players
+#' A dataset containing individual player season statistics for Major League Volleyball (MLV) players
 #' across the league for the 2024-2025 seasons.
 #'
 #' @format A data frame with 264 rows and 23 variables:
@@ -200,7 +242,7 @@
 #' @family datasets
 #'
 #' @examples
-#' head(pvf_player_data)
+#' head(mlv_player_data)
 #'
 #' @source \url{https://provolleyball.com}
-"pvf_player_data"
+"mlv_player_data"

@@ -2,32 +2,35 @@
 % Please edit documentation in R/get_stats.R
 \name{get_stats}
 \alias{get_stats}
-\title{Extract Data from US Women's Pro Volleyball Websites}
+\title{Extract Data from US Women's Professional Volleyball Websites}
 \usage{
-get_stats(league = NULL, team = NULL, year = NULL, level = NULL)
+get_stats(league = NULL, team = NULL, year = NULL, level = NULL, stored = TRUE)
 }
 \arguments{
 \item{league}{A character string specifying which league to retrieve. Must be
-"LOVB" or "PVF".}
+"AU", "LOVB" or "MLV".}
 
 \item{team}{A character string specifying the team name or city. Accepts
 city names (e.g., "Omaha", "Atlanta") or variations like "Indianapolis"
 (converted to "Indy") and "Las Vegas" (converted to "Vegas"). Must match
-one of the valid LOVB or PVF team cities.}
+one of the valid LOVB or MLV team cities. AU has no teams.}
 
 \item{year}{A numeric value specifying the year for which to retrieve
-statistics. Must be 2024 or later, corresponding to available LOVB or PVF seasons.}
+statistics. Must be 2024 or later for LOVB or MLV and 2021 or later for AU.}
 
 \item{level}{A character string specifying whether to extract the "team" or individual
-"player" statistics.}
+"player" statistics. AU has no team statistics.}
+
+\item{stored}{A logical specifying whether to use stored data for previous years
+(TRUE is default) or force the function to scrape the website (FALSE)}
 }
 \value{
 A tibble containing team match-by-match or player season statistics.
 }
 \description{
-This function scrapes team match-by-match and player season statistics for a specified
-League One Volleyball (LOVB) or Pro Volleyball Federation (PVF) team and
-year from the official website.
+This function scrapes team match-by-match and player season statistics for
+Athletes Unlimited (UA), League One Volleyball (LOVB), or Major League Volleyball (MLV)
+players and teams from the official websites.
 }
 \note{
 This function requires:
@@ -43,18 +46,20 @@ will be visible during execution. Browser sessions are automatically closed
 after data extraction.
 }
 \examples{
-\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 # Get Omaha Supernovas 2024 match statistics
-get_stats(league = "PVF", team = "Omaha", year = 2024, level = "team")
-get_stats(league = "PVF", team = "Omaha", year = 2024, level = "player")
+get_stats(league = "AU", year = 2025)
 get_stats(league = "LOVB", team = "Austin", year = 2025, level = "team")
 get_stats(league = "LOVB", team = "Austin", year = 2025, level = "player")
+get_stats(league = "MLV", team = "Omaha", year = 2024, level = "team")
+get_stats(league = "MLV", team = "Omaha", year = 2024, level = "player")
 \dontshow{\}) # examplesIf}
 }
 \seealso{
 Other statistics functions: 
+\code{\link{au_stats}()},
 \code{\link{group_stats}()},
 \code{\link{lovb_stats}()},
-\code{\link{pvf_stats}()}
+\code{\link{mlv_stats}()}
 }
 \concept{statistics functions}

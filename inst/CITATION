@@ -1,0 +1,8 @@
+bibentry(
+  bibtype  = "Manual",
+  title    = "Extract Data from US Women's Professional Volleyball Websites",
+  author   = c(as.person("Jeffrey R. Stevens")),
+  note     = "R package version 0.1.0",
+  year     = "2026",
+  url      = "https://github.com/JeffreyRStevens/provolleyballr"
+)
