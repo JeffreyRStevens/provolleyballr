@@ -5,11 +5,11 @@
 
 <!-- badges: start -->
 
-[![Project Status: WIP – Initial development is in progress, but there
-has not yet been a stable, usable release suitable for the
-public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle:
-experimental](man/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
 The
@@ -83,23 +83,29 @@ a particular league:
 
 ``` r
 # Get team match statistics for Omaha Supernovas in 2024
-get_stats(league = "LOVB", team = "Omaha", year = 2025, level = "team")
-#>   year  team opponent       date points hitting_efficiency kill_percentage
-#> 1 2025 Omaha   Austin 01/07/2026     13              0.333              50
-#>   kills attack_errors attacks_blocked attack_attempts in_system_percentage
-#> 1    12             3               1              24                   50
-#>   reception_errors reception_attempts service_aces service_errors
-#> 1                1                 16            0              2
-#>   opponent_in_system_percentage service_attempts blocks block_touch_percentage
-#> 1                          64.3               14      1                   42.9
-#>   digs dig_percentage assists setting_efficiency
-#> 1   14           87.5      12              0.333
+get_stats(league = "MLV", team = "Omaha", year = 2025, level = "team")
+#> # A tibble: 28 × 15
+#>     year team  date      opponent result kills assists service_aces blocks   out
+#>    <int> <chr> <chr>     <chr>    <chr>  <int>   <int>        <int>  <int> <int>
+#>  1  2025 Omaha 01/10/20… vsAtlan… W         60      56            3     13    48
+#>  2  2025 Omaha 01/12/20… atGrand… W         55      47            2      4    38
+#>  3  2025 Omaha 01/17/20… atVegas… L         51      48            3     14    42
+#>  4  2025 Omaha 01/19/20… vsSan D… L         62      54            1      5    46
+#>  5  2025 Omaha 01/24/20… atColum… W         38      34            5      9    24
+#>  6  2025 Omaha 01/31/20… vsColum… W         32      31            1     13    26
+#>  7  2025 Omaha 02/02/20… atOrlan… L         31      31            2      5    23
+#>  8  2025 Omaha 02/06/20… atIndy … W         44      43            4     11    35
+#>  9  2025 Omaha 02/08/20… atAtlan… W         54      49            0      9    38
+#> 10  2025 Omaha 02/16/20… vsSan D… W         42      39            2     10    28
+#> # ℹ 18 more rows
+#> # ℹ 5 more variables: attack_attempts <int>, hitting_efficiency <dbl>,
+#> #   digs <int>, digs_per_set <dbl>, sets_played <int>
 
 # Get individual player statistics
 get_stats(league = "MLV", team = "Omaha", year = 2025, level = "player")
 #> # A tibble: 15 × 23
 #>     year team  number player    sets_played matches_played points points_per_set
-#>    <dbl> <chr>  <dbl> <chr>           <dbl>          <dbl>  <dbl>          <dbl>
+#>    <int> <chr>  <dbl> <chr>           <dbl>          <dbl>  <dbl>          <dbl>
 #>  1  2025 Omaha      1 Valentin…          91             28     56           0.62
 #>  2  2025 Omaha      4 Vazquez …           1              1      0           0   
 #>  3  2025 Omaha      5 Nunevill…         101             28    413           4.09
@@ -134,8 +140,7 @@ mlv_stats(team = "Omaha", year = 2025, level = "player")
 ```
 
 To get team data for LOVB and MLV, use `lovb_stats()` and `mlv_stats()`
-respectively. For both functions, simply include the team name and year
-and set `level = "team"`.
+respectively with `level = "team"`.
 
 ``` r
 lovb_stats(team = "Omaha", year = 2025, level = "team")
@@ -149,7 +154,7 @@ function using data: player season data from AU (2021-2025) and player
 season and team match data for AU, LOVB, and MLV (2024-2025).
 
 ``` r
-# Load AU individual player data  
+# Load AU individual player data
 head(au_player_data)
 #> # A tibble: 6 × 25
 #>    year  rank player        points sets_played kills kills_per_set attack_errors
@@ -168,90 +173,90 @@ head(au_player_data)
 #> #   blocks <dbl>, blocks_per_set <dbl>, block_assists <dbl>,
 #> #   good_receptions <dbl>
 
-# Load LOVB individual player data  
+# Load LOVB individual player data
 head(lovb_player_data)
-#>   year   team number           player points matches_started sets_started
-#> 1 2025 Austin     11   Bella Bergmark      9               0            3
-#> 2 2025 Austin     22    Bailey Miller      0               0            0
-#> 3 2025 Austin     13 Juliann Faucette      1               0            0
-#> 4 2025 Austin     10       Zoe Jarvis      0               0            0
-#> 5 2025 Austin      3      Carli Lloyd      0               0            0
-#> 6 2025 Austin      5     Molly McCage      3               1            2
+#>   year    team number         player points matches_started sets_started
+#> 1 2025 Atlanta      8 Kayla Haneline     47               5           20
+#> 2 2025 Atlanta      3   Marta Bechis      0               0            0
+#> 3 2025 Atlanta     23    Kelsey Cook    198              16           66
+#> 4 2025 Atlanta     10      Madi Bugg     24               9           36
+#> 5 2025 Atlanta      9 Iga Wasilewska      1               1            1
+#> 6 2025 Atlanta     17   Tessa Grubbs    103               5           20
 #>   sets_played hitting_efficiency kill_percentage kills attack_errors
-#> 1           4              0.778            77.8     7             0
-#> 2           0              0.000             0.0     0             0
-#> 3           3              0.000            12.5     1             1
-#> 4           3              0.000             0.0     0             0
-#> 5           3              0.000             0.0     0             0
-#> 6           2              0.286            42.9     3             1
+#> 1          23              0.350            48.3    29             6
+#> 2          11              0.000             0.0     0             0
+#> 3          66              0.220            33.5   166            32
+#> 4          59              0.304            39.1     9             2
+#> 5           2              0.333            33.3     1             0
+#> 6          29              0.293            45.5    87            23
 #>   attacks_blocked attack_attempts in_system_percentage reception_errors
-#> 1               0               9                  0.0                0
-#> 2               0               0                  0.0                0
-#> 3               0               8                  0.0                0
-#> 4               0               0                 33.3                1
-#> 5               0               0                  0.0                0
-#> 6               0               7                  0.0                0
+#> 1               2              60                   50                0
+#> 2               0               0                    0                0
+#> 3              25             495                   60               13
+#> 4               0              23                    0                0
+#> 5               0               3                    0                0
+#> 6               8             191                  100                0
 #>   reception_attempts service_aces service_errors opponent_in_system_percentage
-#> 1                  2            0              1                          50.0
-#> 2                  0            0              0                           0.0
-#> 3                  0            0              0                           0.0
-#> 4                 15            0              0                         100.0
-#> 5                  0            0              0                          33.3
-#> 6                  2            0              1                          66.7
+#> 1                  8            8             10                          33.8
+#> 2                  0            0              2                          50.0
+#> 3                270           19             19                          42.5
+#> 4                  1            8             10                          39.8
+#> 5                  0            0              0                          50.0
+#> 6                  1            7             20                          20.8
 #>   service_attempts blocks block_touch_percentage digs dig_percentage assists
-#> 1               16      2                   36.4    3             75       0
-#> 2                0      0                    0.0    0              0       0
-#> 3                0      0                   25.0    0              0       0
-#> 4                1      0                    0.0    7             70       2
-#> 5                3      0                    0.0    1            100       4
-#> 6                3      0                   20.0    1             50       0
+#> 1               71     10                   38.3    8           80.0       1
+#> 2                8      0                  100.0    2           66.7      13
+#> 3              287     13                   47.5  218           87.9      17
+#> 4              191      7                   49.0  125           82.8     397
+#> 5                2      0                    0.0    0            0.0       0
+#> 6               53      9                   59.4   35           92.1       0
 #>   setting_efficiency
 #> 1              0.000
 #> 2              0.000
-#> 3              0.000
-#> 4              0.200
-#> 5              0.125
-#> 6              0.000
+#> 3              0.164
+#> 4              0.246
+#> 5              0.000
+#> 6             -0.400
 
 # Load LOVB team match data
 head(lovb_team_data)
-#>   year      team  opponent       date points hitting_efficiency kill_percentage
-#> 1 2025    Austin  Nebraska 01/07/2026     12              0.360              40
-#> 2 2025   Houston Salt Lake 01/08/2026      0              0.000               0
-#> 3 2025   Madison Salt Lake 01/10/2026      0              0.000               0
-#> 4 2025  Nebraska    Austin 01/07/2026     13              0.333              50
-#> 5 2025     Omaha    Austin 01/07/2026     13              0.333              50
-#> 6 2025 Salt Lake   Houston 01/08/2026      0              0.000               0
+#>   year    team  opponent       date points hitting_efficiency kill_percentage
+#> 1 2025 Atlanta Salt Lake 01/08/2025     65              0.236            35.7
+#> 2 2025 Atlanta    Austin 01/15/2025     77              0.236            41.9
+#> 3 2025 Atlanta   Madison 01/25/2025     86              0.288            41.3
+#> 4 2025 Atlanta Salt Lake 01/31/2025     64              0.367            46.8
+#> 5 2025 Atlanta     Omaha 02/01/2025     77              0.203            39.2
+#> 6 2025 Atlanta Salt Lake 02/07/2025     79              0.306            49.6
 #>   kills attack_errors attacks_blocked attack_attempts in_system_percentage
-#> 1    10             0               1              25                   75
-#> 2     0             0               0               0                    0
-#> 3     0             0               0               0                    0
-#> 4    12             3               1              24                   50
-#> 5    12             3               1              24                   50
-#> 6     0             0               0               0                    0
+#> 1    50            10               7             140                 50.0
+#> 2    62            18               9             148                 63.1
+#> 3    66            12               8             160                 52.7
+#> 4    51             8               3             109                 45.9
+#> 5    62            17              13             158                 58.8
+#> 6    60            17               6             121                 50.7
 #>   reception_errors reception_attempts service_aces service_errors
-#> 1                0                 12            1              1
-#> 2                0                  0            0              0
-#> 3                0                  0            0              0
-#> 4                1                 16            0              2
-#> 5                1                 16            0              2
-#> 6                0                  0            0              0
+#> 1                1                 78            4              6
+#> 2                4                 84            5             13
+#> 3                5                 93            9             16
+#> 4                4                 61            6              9
+#> 5                2                 80            7             10
+#> 6                0                 71           10             12
 #>   opponent_in_system_percentage service_attempts blocks block_touch_percentage
-#> 1                          47.1               17      1                   40.0
-#> 2                           0.0                0      0                    0.0
-#> 3                           0.0                0      0                    0.0
-#> 4                          64.3               14      1                   42.9
-#> 5                          64.3               14      1                   42.9
-#> 6                           0.0                0      0                    0.0
+#> 1                          46.2               93     11                   32.8
+#> 2                          33.3               93     10                   41.8
+#> 3                          37.9              103     11                   40.3
+#> 4                          36.5               74      7                   52.2
+#> 5                          42.1               95      8                   55.6
+#> 6                          38.1               97      9                   47.7
 #>   digs dig_percentage assists setting_efficiency
-#> 1    6           60.0       9              0.364
-#> 2    0            0.0       0              0.000
-#> 3    0            0.0       0              0.000
-#> 4   14           87.5      12              0.333
-#> 5   14           87.5      12              0.333
-#> 6    0            0.0       0              0.000
+#> 1   66           76.7      47              0.237
+#> 2   64           84.2      62              0.250
+#> 3   71           86.6      62              0.275
+#> 4   48           84.2      48              0.369
+#> 5   55           80.9      58              0.192
+#> 6   49           86.0      58              0.308
 
-# Load MLV individual player data  
+# Load MLV individual player data
 head(mlv_player_data)
 #> # A tibble: 6 × 23
 #>    year team    number player   sets_played matches_played points points_per_set
@@ -283,9 +288,13 @@ head(mlv_team_data)
 #> #   digs <int>, digs_per_set <dbl>, sets_played <int>
 ```
 
-These datasets are also directly available for download as CSV files: \*
-[au_player_data]() \* [lovb_player_data]() \* [lovb_team_data]() \*
-[mlv_player_data]() \* [mlv_team_data]()
+These datasets are also directly available for download as CSV files:
+
+- [au_player_data]()
+- [lovb_player_data]()
+- [lovb_team_data]()
+- [mlv_player_data]()
+- [mlv_team_data]()
 
 ## Data Dictionary
 

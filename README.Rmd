@@ -16,8 +16,9 @@ knitr::opts_chunk$set(
 # provolleyballr <a href="https://jeffreyrstevens.github.io/provolleyballr/"><img src="man/figures/logo.png" align="right" height="139" alt="provolleyballr website" /></a>
 
 <!-- badges: start -->
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
-[![Lifecycle: experimental](man/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental) <!-- badges: end -->
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+<!-- badges: end -->
 
 The [`{provolleyballr}`](https://jeffreyrstevens.github.io/provolleyballr) R package provides tools for scraping match statistics and player data from [Athletes Unlimited](<https://auprosports.com/volleyball), [League One Volleyball (LOVB)](https://lovb.com) and [Major League Volleyball (MLV)](https://provolleyball.com) (formerly the Pro Volleyball Federation) websites.
 
@@ -63,7 +64,7 @@ Use `get_stats()` to retrieve team or individual player statistics from a partic
 
 ```{r example-team}
 # Get team match statistics for Omaha Supernovas in 2024
-get_stats(league = "LOVB", team = "Omaha", year = 2025, level = "team")
+get_stats(league = "MLV", team = "Omaha", year = 2025, level = "team")
 
 # Get individual player statistics
 get_stats(league = "MLV", team = "Omaha", year = 2025, level = "player")
@@ -78,7 +79,7 @@ mlv_stats(team = "Omaha", year = 2025, level = "player")
 ```
 
 
-To get team data for LOVB and MLV, use `lovb_stats()` and `mlv_stats()` respectively. For both functions, simply include the team name and year and set `level = "team"`.
+To get team data for LOVB and MLV, use `lovb_stats()` and `mlv_stats()` respectively with `level = "team"`.
 
 ```{r eval = FALSE}
 lovb_stats(team = "Omaha", year = 2025, level = "team")
@@ -91,16 +92,16 @@ mlv_stats(team = "Omaha", year = 2025, level = "team")
 The package includes five main datasets created with the `group_stats()` function using data: player season data from AU (2021-2025) and player season and team match data for AU, LOVB, and MLV (2024-2025).
 
 ```{r data-overview}
-# Load AU individual player data  
+# Load AU individual player data
 head(au_player_data)
 
-# Load LOVB individual player data  
+# Load LOVB individual player data
 head(lovb_player_data)
 
 # Load LOVB team match data
 head(lovb_team_data)
 
-# Load MLV individual player data  
+# Load MLV individual player data
 head(mlv_player_data)
 
 # Load MLV team match data
@@ -108,6 +109,7 @@ head(mlv_team_data)
 ```
 
 These datasets are also directly available for download as CSV files:
+
 * [au_player_data]()
 * [lovb_player_data]()
 * [lovb_team_data]()
