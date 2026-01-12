@@ -115,7 +115,7 @@ A data frame with 220 rows and 25 variables:
 
 ## Source
 
-<https://auprosports.com/volleyball>
+<https://auprosports.com/volleyball/>
 
 ## See also
 

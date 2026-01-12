@@ -2,7 +2,7 @@
 
 This function scrapes player season statistics for Athletes Unlimited
 Volleyball (AU) players from the official AU website
-<https://auprosports.com/volleyball>.
+<https://auprosports.com/volleyball/>.
 
 ## Usage
 

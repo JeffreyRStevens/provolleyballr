@@ -1,7 +1,7 @@
 # provolleyballr: Extract Data from US Women's Professional Volleyball Websites
 
 Tools for scraping match statistics and player data from the Athletes
-Unlimited (UA) website <https://auprosports.com/volleyball>, the League
+Unlimited (UA) website <https://auprosports.com/volleyball/>, the League
 One Volleyball website <https://lovb.com>, and the Major League (MLV)
 website <https://provolleyball.com>.
 
