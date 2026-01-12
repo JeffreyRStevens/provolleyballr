@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
-The [`{provolleyballr}`](https://jeffreyrstevens.github.io/provolleyballr) R package provides tools for scraping match statistics and player data from [Athletes Unlimited](<https://auprosports.com/volleyball), [League One Volleyball (LOVB)](https://lovb.com) and [Major League Volleyball (MLV)](https://provolleyball.com) (formerly the Pro Volleyball Federation) websites.
+The [`{provolleyballr}`](https://jeffreyrstevens.github.io/provolleyballr) R package provides tools for scraping match statistics and player data from [Athletes Unlimited](https://auprosports.com/volleyball), [League One Volleyball (LOVB)](https://lovb.com) and [Major League Volleyball (MLV)](https://provolleyball.com) (formerly the Pro Volleyball Federation) websites.
 
 
 ## Installation

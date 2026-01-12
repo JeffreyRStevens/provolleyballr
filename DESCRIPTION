@@ -35,5 +35,4 @@ Suggests:
 SystemRequirements: Google Chrome browser
 URL: https://github.com/JeffreyRStevens/provolleyballr
 BugReports: https://github.com/JeffreyRStevens/provolleyballr/issues
-VignetteBuilder: knitr
 LazyData: true

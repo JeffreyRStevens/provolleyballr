@@ -9,3 +9,5 @@
 ^pkgdown$
 ^\.vscode$
 ^[.]?air[.]toml$
+^cran-comments\.md$
+^LICENSE\.md$

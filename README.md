@@ -15,10 +15,10 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 The
 [`{provolleyballr}`](https://jeffreyrstevens.github.io/provolleyballr) R
 package provides tools for scraping match statistics and player data
-from [Athletes Unlimited](%3Chttps://auprosports.com/volleyball),
-[League One Volleyball (LOVB)](https://lovb.com) and [Major League
-Volleyball (MLV)](https://provolleyball.com) (formerly the Pro
-Volleyball Federation) websites.
+from [Athletes Unlimited](https://auprosports.com/volleyball), [League
+One Volleyball (LOVB)](https://lovb.com) and [Major League Volleyball
+(MLV)](https://provolleyball.com) (formerly the Pro Volleyball
+Federation) websites.
 
 ## Installation
 
