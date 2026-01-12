@@ -12,6 +12,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![Codecov test
 coverage](https://codecov.io/gh/JeffreyRStevens/provolleyballr/graph/badge.svg)](https://app.codecov.io/gh/JeffreyRStevens/provolleyballr)
+[![R-CMD-check](https://github.com/JeffreyRStevens/provolleyballr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/JeffreyRStevens/provolleyballr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The
@@ -292,11 +293,11 @@ head(mlv_team_data)
 
 These datasets are also directly available for download as CSV files:
 
-- [au_player_data]()
-- [lovb_player_data]()
-- [lovb_team_data]()
-- [mlv_player_data]()
-- [mlv_team_data]()
+- [au_player_data](https://raw.githubusercontent.com/JeffreyRStevens/provolleyballr/refs/heads/main/data-csv/au_player_data.csv)
+- [lovb_player_data](https://raw.githubusercontent.com/JeffreyRStevens/provolleyballr/refs/heads/main/data-csv/lovb_player_data.csv)
+- [lovb_team_data](https://raw.githubusercontent.com/JeffreyRStevens/provolleyballr/refs/heads/main/data-csv/lovb_team_data.csv)
+- [mlv_player_data](https://raw.githubusercontent.com/JeffreyRStevens/provolleyballr/refs/heads/main/data-csv/mlv_player_data.csv)
+- [mlv_team_data](https://raw.githubusercontent.com/JeffreyRStevens/provolleyballr/refs/heads/main/data-csv/mlv_team_data.csv)
 
 ## Data Dictionary
 
