@@ -10,6 +10,8 @@ state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![Codecov test
+coverage](https://codecov.io/gh/JeffreyRStevens/provolleyballr/graph/badge.svg)](https://app.codecov.io/gh/JeffreyRStevens/provolleyballr)
 <!-- badges: end -->
 
 The
