@@ -22,7 +22,7 @@ year, rank, player, points, sets_played, kills, kills_per_set, attack_errors, at
 \description{
 This function scrapes player season statistics for Athletes Unlimited Volleyball (AU)
 players from the official AU website
-\url{https://auprosports.com/volleyball}.
+\url{https://auprosports.com/volleyball/}.
 }
 \note{
 This function requires:

@@ -37,7 +37,7 @@
 #' @examples
 #' head(au_player_data)
 #'
-#' @source \url{https://auprosports.com/volleyball}
+#' @source \url{https://auprosports.com/volleyball/}
 "au_player_data"
 
 #' League One Volleyball Teams

@@ -11,3 +11,4 @@
 ^[.]?air[.]toml$
 ^cran-comments\.md$
 ^LICENSE\.md$
+^codemeta.json$

@@ -16,9 +16,9 @@ coverage](https://codecov.io/gh/JeffreyRStevens/provolleyballr/graph/badge.svg)]
 <!-- badges: end -->
 
 The
-[`{provolleyballr}`](https://jeffreyrstevens.github.io/provolleyballr) R
-package provides tools for scraping match statistics and player data
-from [Athletes Unlimited](https://auprosports.com/volleyball), [League
+[`{provolleyballr}`](https://jeffreyrstevens.github.io/provolleyballr/)
+R package provides tools for scraping match statistics and player data
+from [Athletes Unlimited](https://auprosports.com/volleyball/), [League
 One Volleyball (LOVB)](https://lovb.com) and [Major League Volleyball
 (MLV)](https://provolleyball.com) (formerly the Pro Volleyball
 Federation) websites.
@@ -476,4 +476,4 @@ The volleyball background in the logo was designed by
 [Freepik](https://www.freepik.com/free-vector/volleyball-grey-gradient_59539214.htm).
 
 This package was developed with the assistance of [Claude Sonnet
-4](https://www.anthropic.com/claude).
+4](https://claude.com/product/overview).

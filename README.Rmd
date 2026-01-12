@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/JeffreyRStevens/provolleyballr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/JeffreyRStevens/provolleyballr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The [`{provolleyballr}`](https://jeffreyrstevens.github.io/provolleyballr) R package provides tools for scraping match statistics and player data from [Athletes Unlimited](https://auprosports.com/volleyball), [League One Volleyball (LOVB)](https://lovb.com) and [Major League Volleyball (MLV)](https://provolleyball.com) (formerly the Pro Volleyball Federation) websites.
+The [`{provolleyballr}`](https://jeffreyrstevens.github.io/provolleyballr/) R package provides tools for scraping match statistics and player data from [Athletes Unlimited](https://auprosports.com/volleyball/), [League One Volleyball (LOVB)](https://lovb.com) and [Major League Volleyball (MLV)](https://provolleyball.com) (formerly the Pro Volleyball Federation) websites.
 
 
 ## Installation
@@ -282,4 +282,4 @@ Many thanks to [Bill Petti](https://github.com/BillPetti) for making the code fo
 
 The volleyball background in the logo was designed by [Freepik](https://www.freepik.com/free-vector/volleyball-grey-gradient_59539214.htm).
 
-This package was developed with the assistance of [Claude Sonnet 4](https://www.anthropic.com/claude).
+This package was developed with the assistance of [Claude Sonnet 4](https://claude.com/product/overview).

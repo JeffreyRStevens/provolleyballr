@@ -35,7 +35,7 @@ A data frame with 220 rows and 25 variables:
 }
 }
 \source{
-\url{https://auprosports.com/volleyball}
+\url{https://auprosports.com/volleyball/}
 }
 \usage{
 au_player_data
