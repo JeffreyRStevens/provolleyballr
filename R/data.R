@@ -8,7 +8,7 @@
 #'   \item{year}{Season year}
 #'   \item{rank}{Player rank}
 #'   \item{player}{Player name}
-#'   \item{points}{Total points achieived}
+#'   \item{points}{Total points achieved}
 #'   \item{sets_played}{Sets played}
 #'   \item{kills}{Kills - successful attacks}
 #'   \item{kills_per_set}{Kills per set}

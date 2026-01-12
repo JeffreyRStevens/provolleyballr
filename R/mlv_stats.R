@@ -12,7 +12,7 @@
 #' year, team, date, opponent, result, kills, assists, service_aces, blocks, out, attack_attempts, hitting_efficiency, digs, digs_per_set, sets_played
 #'
 #' Player data include:
-#' year, team, number, player, sets_played, matches_played, points, points_per_set, kills, kills_per_set, attack_errors, attack_attempts, hitting_efficiency, assists, assists_per_set, service_aces, service_aces_per_set, serive_errors, service_errors_per_set, digs, digs_per_set, blocks, blocks_per_set
+#' year, team, number, player, sets_played, matches_played, points, points_per_set, kills, kills_per_set, attack_errors, attack_attempts, hitting_efficiency, assists, assists_per_set, service_aces, service_aces_per_set, serve_errors, service_errors_per_set, digs, digs_per_set, blocks, blocks_per_set
 #'
 #' @note This function requires:
 #' * The <a href="https://ashbythorpe.github.io/selenider/"><code>\{selenider\}</code></a> R package
