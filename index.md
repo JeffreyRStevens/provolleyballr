@@ -287,11 +287,11 @@ head(mlv_team_data)
 
 These datasets are also directly available for download as CSV files:
 
-- [au_player_data](https://jeffreyrstevens.github.io/provolleyballr/)
-- [lovb_player_data](https://jeffreyrstevens.github.io/provolleyballr/)
-- [lovb_team_data](https://jeffreyrstevens.github.io/provolleyballr/)
-- [mlv_player_data](https://jeffreyrstevens.github.io/provolleyballr/)
-- [mlv_team_data](https://jeffreyrstevens.github.io/provolleyballr/)
+- [au_player_data](https://raw.githubusercontent.com/JeffreyRStevens/provolleyballr/refs/heads/main/data-csv/au_player_data.csv)
+- [lovb_player_data](https://raw.githubusercontent.com/JeffreyRStevens/provolleyballr/refs/heads/main/data-csv/lovb_player_data.csv)
+- [lovb_team_data](https://raw.githubusercontent.com/JeffreyRStevens/provolleyballr/refs/heads/main/data-csv/lovb_team_data.csv)
+- [mlv_player_data](https://raw.githubusercontent.com/JeffreyRStevens/provolleyballr/refs/heads/main/data-csv/mlv_player_data.csv)
+- [mlv_team_data](https://raw.githubusercontent.com/JeffreyRStevens/provolleyballr/refs/heads/main/data-csv/mlv_team_data.csv)
 
 ## Data Dictionary
 
