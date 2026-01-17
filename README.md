@@ -12,7 +12,6 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/provolleyballr)](https://CRAN.R-project.org/package=provolleyballr)
-[![R-CMD-check](https://github.com/JeffreyRStevens/provolleyballr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/JeffreyRStevens/provolleyballr/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/JeffreyRStevens/provolleyballr/graph/badge.svg)](https://app.codecov.io/gh/JeffreyRStevens/provolleyballr)
 <!-- badges: end -->
