@@ -18,8 +18,9 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![Codecov test coverage](https://codecov.io/gh/JeffreyRStevens/provolleyballr/graph/badge.svg)](https://app.codecov.io/gh/JeffreyRStevens/provolleyballr)
+[![CRAN status](https://www.r-pkg.org/badges/version/provolleyballr)](https://CRAN.R-project.org/package=provolleyballr)
 [![R-CMD-check](https://github.com/JeffreyRStevens/provolleyballr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/JeffreyRStevens/provolleyballr/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/JeffreyRStevens/provolleyballr/graph/badge.svg)](https://app.codecov.io/gh/JeffreyRStevens/provolleyballr)
 <!-- badges: end -->
 
 The [`{provolleyballr}`](https://jeffreyrstevens.github.io/provolleyballr/) R package provides tools for scraping match statistics and player data from [Athletes Unlimited](https://auprosports.com/volleyball/), [League One Volleyball (LOVB)](https://lovb.com) and [Major League Volleyball (MLV)](https://provolleyball.com) (formerly the Pro Volleyball Federation) websites.
