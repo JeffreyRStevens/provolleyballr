@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/JeffreyRStevens/provolleyballr/blob/main/inst/CITATION)
+[`inst/CITATION`](https://github.com/JeffreyRStevens/provolleyballr/blob/v0.1.0/inst/CITATION)
 
 Stevens JR (2026). *Extract Data from US Women's Professional Volleyball
 Websites*. R package version 0.1.0,
