@@ -4,8 +4,8 @@ template:
   bootswatch: spacelab
   light-switch: true
   bslib:
-    primary: "#7af5b3"
-    info: "#7af5b3"
+    primary: "#0caa6a"
+    info: "#0caa6a"
 
 reference:
 - title: Extract team and player statistics
