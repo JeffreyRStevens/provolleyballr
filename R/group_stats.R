@@ -52,6 +52,7 @@ group_stats <- function(
   ) |>
     dplyr::filter(.data$teams != "Indy" | .data$years >= 2025) |>
     dplyr::filter(.data$teams != "Dallas" | .data$years >= 2026) |>
+    dplyr::filter(.data$teams != "Vegas" | .data$years < 2026) |>
     dplyr::filter(
       .data$teams != "Omaha" | league != "LOVB" | .data$years == 2025
     ) |>
