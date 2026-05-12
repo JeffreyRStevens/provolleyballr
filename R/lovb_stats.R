@@ -112,7 +112,8 @@ extract_lovb_player_stats <- function(page_html) {
   # Extract data table
   numbers_col <- page_html |>
     rvest::html_elements(
-      xpath = "/html/body/main/div[5]/div/div[2]/div[2]/div[1]"
+      xpath = "/html/body/main/div[6]/div/div/div[2]/div[2]/div[1]"
+      # xpath = "/html/body/main/div[5]/div/div[2]/div[2]/div[1]"
     )
 
   numbers <- numbers_col |>
@@ -121,7 +122,8 @@ extract_lovb_player_stats <- function(page_html) {
 
   data_table <- page_html |>
     rvest::html_elements(
-      xpath = "/html/body/main/div[5]/div/div[2]/div[2]/div[2]/div"
+      xpath = "/html/body/main/div[6]/div/div/div[2]/div[2]/div"
+      # xpath = "/html/body/main/div[5]/div/div[2]/div[2]/div[2]/div"
     ) |>
     rvest::html_elements(".overflow-hidden")
 
@@ -235,7 +237,8 @@ extract_lovb_team_stats <- function(page_html) {
   # Extract data table
   data_table <- page_html |>
     rvest::html_elements(
-      xpath = "/html/body/main/div[5]/div/div[3]/div[2]/div[2]/div"
+      xpath = "/html/body/main/div[6]/div/div/div[3]/div[2]/div"
+      # xpath = "/html/body/main/div[5]/div/div[3]/div[2]/div[2]/div"
     ) |>
     rvest::html_elements(".overflow-hidden")
 
