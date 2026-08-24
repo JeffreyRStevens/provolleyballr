@@ -49,7 +49,7 @@ head(au_player_data)
 
 }
 \seealso{
-Other datasets: 
+Other datasets:
 \code{\link{lovb_player_data}},
 \code{\link{lovb_team_data}},
 \code{\link{lovb_teams}},

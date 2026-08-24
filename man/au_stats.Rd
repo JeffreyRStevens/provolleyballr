@@ -44,10 +44,10 @@ au_stats(year = 2025)
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-Other statistics functions: 
-\code{\link{get_stats}()},
-\code{\link{group_stats}()},
-\code{\link{lovb_stats}()},
-\code{\link{mlv_stats}()}
+Other statistics functions:
+\code{\link[=get_stats]{get_stats()}},
+\code{\link[=group_stats]{group_stats()}},
+\code{\link[=lovb_stats]{lovb_stats()}},
+\code{\link[=mlv_stats]{mlv_stats()}}
 }
 \concept{statistics functions}

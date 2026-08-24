@@ -8,15 +8,21 @@ export(mlv_stats)
 importFrom(dplyr,mutate)
 importFrom(lifecycle,deprecated)
 importFrom(rlang,.data)
-importFrom(rvest,html_element)
-importFrom(rvest,html_table)
-importFrom(selenider,chromote_options)
-importFrom(selenider,close_session)
-importFrom(selenider,elem_select)
-importFrom(selenider,get_page_source)
-importFrom(selenider,open_url)
-importFrom(selenider,s)
-importFrom(selenider,selenider_session)
-importFrom(stringr,str_extract)
-importFrom(stringr,str_remove)
-importFrom(stringr,str_trim)
+importFrom(rvest,
+  html_element,
+  html_table
+)
+importFrom(selenider,
+  chromote_options,
+  close_session,
+  elem_select,
+  get_page_source,
+  open_url,
+  s,
+  selenider_session
+)
+importFrom(stringr,
+  str_extract,
+  str_remove,
+  str_trim
+)

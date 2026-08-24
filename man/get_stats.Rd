@@ -56,10 +56,10 @@ get_stats(league = "MLV", team = "Omaha", year = 2024, level = "player")
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-Other statistics functions: 
-\code{\link{au_stats}()},
-\code{\link{group_stats}()},
-\code{\link{lovb_stats}()},
-\code{\link{mlv_stats}()}
+Other statistics functions:
+\code{\link[=au_stats]{au_stats()}},
+\code{\link[=group_stats]{group_stats()}},
+\code{\link[=lovb_stats]{lovb_stats()}},
+\code{\link[=mlv_stats]{mlv_stats()}}
 }
 \concept{statistics functions}

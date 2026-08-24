@@ -338,7 +338,7 @@ Statistics Guide](https://provolleyball.com/statistics-guide).
 
 - `year`: Season year
 - `team`: Team name
-- `opponent`: Opposing team name  
+- `opponent`: Opposing team name
 - `date`: Match date
 - `points`: Points scored
 - `hitting_efficiency`: Attack efficiency percentage
@@ -424,7 +424,7 @@ Statistics Guide](https://provolleyball.com/statistics-guide).
 - `kills`: Successful attacks
 - `kills_per_set`: Kills per set
 - `attack_errors`: Attack errors
-- `attack_attempts`: Total attack attempts  
+- `attack_attempts`: Total attack attempts
 - `hitting_efficiency`: Attack efficiency percentage
 - `assists`: Assists
 - `assists_per_set`: Assists per set
