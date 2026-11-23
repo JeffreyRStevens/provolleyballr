@@ -97,7 +97,7 @@ au_stats <- function(year = NULL, stored = TRUE) {
     # Get page source
     table <- selenider::get_page_source() |>
       rvest::html_element(
-        css = '#block-stats-root > div.table-wrap > div > div.relative.css-rfns5p-Table > div.table-overflow.css-1r97v5e-Table > table'
+        xpath = '/html/body/main/div[3]/div/div[2]/div/div[4]/div/div[4]/div[1]/table'
       ) |>
       rvest::html_table()
     table <- table[, 1:24]
