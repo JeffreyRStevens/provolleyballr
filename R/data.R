@@ -45,7 +45,7 @@
 #' A dataset containing information about League One Volleyball (LOVB) teams,
 #' including team names, URL slugs, and first year used for web scraping.
 #'
-#' @format A data frame with 8 rows and 5 variables:
+#' @format A data frame with 7 rows and 3 variables:
 #' \describe{
 #'   \item{name}{Team city name}
 #'   \item{slug}{URL slug used in LOVB website URLs}
