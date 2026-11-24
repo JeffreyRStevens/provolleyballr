@@ -183,7 +183,7 @@ mlv_stats <- function(team = NULL, year = NULL, level = NULL, stored = TRUE) {
           "assists",
           "service_aces",
           "blocks",
-          "out",
+          # "out",
           "attack_attempts",
           "hitting_efficiency",
           "digs",

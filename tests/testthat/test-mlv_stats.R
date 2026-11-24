@@ -21,7 +21,7 @@ test_that("mlv_stats() works", {
     stored = FALSE
   )
   expect_s3_class(result, "data.frame")
-  expect_true(ncol(result) == 15)
+  expect_true(ncol(result) == 14)
   expect_true(all(
     c("year", "team", "date", "opponent", "result") %in% names(result)
   ))
