@@ -5,7 +5,7 @@
 \alias{lovb_teams}
 \title{League One Volleyball Teams}
 \format{
-A data frame with 8 rows and 5 variables:
+A data frame with 7 rows and 3 variables:
 \describe{
 \item{name}{Team city name}
 \item{slug}{URL slug used in LOVB website URLs}

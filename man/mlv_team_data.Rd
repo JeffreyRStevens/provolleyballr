@@ -5,7 +5,7 @@
 \alias{mlv_team_data}
 \title{Major League Volleyball Team Match Statistics}
 \format{
-A data frame with 392 rows and 15 variables:
+A data frame with 616 rows and 15 variables:
 \describe{
 \item{year}{Season year}
 \item{team}{Team name}

@@ -5,7 +5,7 @@
 \alias{mlv_player_data}
 \title{Major League Volleyball Individual Player Statistics}
 \format{
-A data frame with 264 rows and 23 variables:
+A data frame with 400 rows and 23 variables:
 \describe{
 \item{year}{Season year}
 \item{team}{Player's team name}

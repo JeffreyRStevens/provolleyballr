@@ -5,7 +5,7 @@
 \alias{lovb_player_data}
 \title{League One Volleyball Individual Player Statistics}
 \format{
-A data frame with 94 rows and 27 variables:
+A data frame with 192 rows and 27 variables:
 \describe{
 \item{year}{Season year}
 \item{team}{Player's team name}

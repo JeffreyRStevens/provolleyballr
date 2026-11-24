@@ -5,7 +5,7 @@
 \alias{mlv_teams}
 \title{Major League Volleyball Teams}
 \format{
-A data frame with 8 rows and 5 variables:
+A data frame with 9 rows and 5 variables:
 \describe{
 \item{city}{Team city name}
 \item{mascot}{Team mascot name}

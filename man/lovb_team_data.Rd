@@ -5,7 +5,7 @@
 \alias{lovb_team_data}
 \title{League One Volleyball Team Match Statistics}
 \format{
-A data frame with 96 rows and 24 variables:
+A data frame with 216 rows and 24 variables:
 \describe{
 \item{year}{Season year}
 \item{team}{Team name}

@@ -3,7 +3,7 @@
 #' A dataset containing individual player season statistics for Athletes Unlimited (UA) players
 #' for the 2021-2025 seasons.
 #'
-#' @format A data frame with 220 rows and 25 variables:
+#' @format A data frame with `r nrow(au_player_data)` rows and `r ncol(au_player_data)` variables:
 #' \describe{
 #'   \item{year}{Season year}
 #'   \item{rank}{Player rank}
@@ -45,7 +45,7 @@
 #' A dataset containing information about League One Volleyball (LOVB) teams,
 #' including team names, URL slugs, and first year used for web scraping.
 #'
-#' @format A data frame with 7 rows and 3 variables:
+#' @format A data frame with `r nrow(lovb_teams)` rows and `r ncol(lovb_teams)` variables:
 #' \describe{
 #'   \item{name}{Team city name}
 #'   \item{slug}{URL slug used in LOVB website URLs}
@@ -69,7 +69,7 @@
 #' A dataset containing team match-by-match statistics for League One Volleyball (LOVB) teams
 #' for the 2025 season.
 #'
-#' @format A data frame with 96 rows and 24 variables:
+#' @format A data frame with `r nrow(lovb_team_data)` rows and `r ncol(lovb_team_data)` variables:
 #' \describe{
 #'   \item{year}{Season year}
 #'   \item{team}{Team name}
@@ -110,7 +110,7 @@
 #' A dataset containing individual player season statistics for League One Volleyball (LOVB) players
 #' across the league for the 2025 season.
 #'
-#' @format A data frame with 94 rows and 27 variables:
+#' @format A data frame with `r nrow(lovb_player_data)` rows and `r ncol(lovb_player_data)` variables:
 #' \describe{
 #'   \item{year}{Season year}
 #'   \item{team}{Player's team name}
@@ -154,7 +154,7 @@
 #' A dataset containing information about Major League Volleyball (MLV) teams,
 #' including team names, cities, mascots, URL slugs, and first year used for web scraping.
 #'
-#' @format A data frame with 8 rows and 5 variables:
+#' @format A data frame with `r nrow(mlv_teams)` rows and `r ncol(mlv_teams)` variables:
 #' \describe{
 #'   \item{city}{Team city name}
 #'   \item{mascot}{Team mascot name}
@@ -180,7 +180,7 @@
 #' A dataset containing team match-by-match statistics for Major League Volleyball (MLV) teams
 #' for the 2024-2025 seasons.
 #'
-#' @format A data frame with 392 rows and 15 variables:
+#' @format A data frame with `r nrow(mlv_team_data)` rows and `r ncol(mlv_team_data)` variables:
 #' \describe{
 #'   \item{year}{Season year}
 #'   \item{team}{Team name}
@@ -212,7 +212,7 @@
 #' A dataset containing individual player season statistics for Major League Volleyball (MLV) players
 #' across the league for the 2024-2025 seasons.
 #'
-#' @format A data frame with 264 rows and 23 variables:
+#' @format A data frame with `r nrow(mlv_player_data)` rows and `r ncol(mlv_player_data)` variables:
 #' \describe{
 #'   \item{year}{Season year}
 #'   \item{team}{Player's team name}
