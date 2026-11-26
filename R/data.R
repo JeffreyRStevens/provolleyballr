@@ -191,7 +191,6 @@
 #'   \item{assists}{Assists - sets that lead directly to a kill}
 #'   \item{service_aces}{Service Aces - serves that result directly in a point}
 #'   \item{blocks}{Blocks - successful defensive plays at the net}
-#'   \item{out}{Definition pending}
 #'   \item{attack_attempts}{Total attack attempts}
 #'   \item{hitting_efficiency}{Attack efficiency percentage}
 #'   \item{digs}{Digs - successful defensive plays}
