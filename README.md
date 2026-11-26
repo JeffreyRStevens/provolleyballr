@@ -151,7 +151,7 @@ mlv_stats(team = "Omaha", year = 2025, level = "team")
 
 The package includes five main datasets created with the `group_stats()`
 function using data: player season data from AU (2021-2025) and player
-season and team match data for AU, LOVB, and MLV (2024-2025).
+season and team match data for AU, LOVB, and MLV (2024-2026).
 
 ``` r
 # Load AU individual player data
@@ -338,7 +338,7 @@ Statistics Guide](https://provolleyball.com/statistics-guide).
 
 - `year`: Season year
 - `team`: Team name
-- `opponent`: Opposing team name
+- `opponent`: Opposing team name\
 - `date`: Match date
 - `points`: Points scored
 - `hitting_efficiency`: Attack efficiency percentage
@@ -404,7 +404,6 @@ Statistics Guide](https://provolleyball.com/statistics-guide).
 - `assists`: Assists
 - `service_aces`: Service aces
 - `blocks`: Blocks
-- `out`: \[Definition pending\]
 - `attack_attempts`: Total attack attempts
 - `hitting_efficiency`: Attack efficiency percentage
 - `digs`: Successful defensive plays
@@ -424,7 +423,7 @@ Statistics Guide](https://provolleyball.com/statistics-guide).
 - `kills`: Successful attacks
 - `kills_per_set`: Kills per set
 - `attack_errors`: Attack errors
-- `attack_attempts`: Total attack attempts
+- `attack_attempts`: Total attack attempts\
 - `hitting_efficiency`: Attack efficiency percentage
 - `assists`: Assists
 - `assists_per_set`: Assists per set

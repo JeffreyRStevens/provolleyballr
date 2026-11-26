@@ -44,7 +44,7 @@ lovb_player_data
 }
 \description{
 A dataset containing individual player season statistics for League One Volleyball (LOVB) players
-across the league for the 2025 season.
+across the league for the 2025-2026 seasons.
 }
 \examples{
 head(lovb_player_data)

@@ -67,7 +67,7 @@
 #' League One Volleyball Team Match Statistics
 #'
 #' A dataset containing team match-by-match statistics for League One Volleyball (LOVB) teams
-#' for the 2025 season.
+#' for the `r min(lovb_team_data$year)`-`r max(lovb_team_data$year)` seasons.
 #'
 #' @format A data frame with `r nrow(lovb_team_data)` rows and `r ncol(lovb_team_data)` variables:
 #' \describe{
@@ -108,7 +108,7 @@
 #' League One Volleyball Individual Player Statistics
 #'
 #' A dataset containing individual player season statistics for League One Volleyball (LOVB) players
-#' across the league for the 2025 season.
+#' across the league for the `r min(lovb_player_data$year)`-`r max(lovb_player_data$year)` seasons.
 #'
 #' @format A data frame with `r nrow(lovb_player_data)` rows and `r ncol(lovb_player_data)` variables:
 #' \describe{
@@ -178,7 +178,7 @@
 #' Major League Volleyball Team Match Statistics
 #'
 #' A dataset containing team match-by-match statistics for Major League Volleyball (MLV) teams
-#' for the 2024-2025 seasons.
+#' for the `r min(mlv_team_data$year)`-`r max(mlv_team_data$year)` seasons.
 #'
 #' @format A data frame with `r nrow(mlv_team_data)` rows and `r ncol(mlv_team_data)` variables:
 #' \describe{
@@ -209,7 +209,7 @@
 #' Major League Volleyball Individual Player Statistics
 #'
 #' A dataset containing individual player season statistics for Major League Volleyball (MLV) players
-#' across the league for the 2024-2025 seasons.
+#' across the league for the `r min(mlv_player_data$year)`-`r max(mlv_player_data$year)` seasons.
 #'
 #' @format A data frame with `r nrow(mlv_player_data)` rows and `r ncol(mlv_player_data)` variables:
 #' \describe{

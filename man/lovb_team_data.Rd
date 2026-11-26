@@ -41,7 +41,7 @@ lovb_team_data
 }
 \description{
 A dataset containing team match-by-match statistics for League One Volleyball (LOVB) teams
-for the 2025 season.
+for the 2025-2026 seasons.
 }
 \examples{
 head(lovb_team_data)

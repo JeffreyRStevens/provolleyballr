@@ -89,7 +89,7 @@ mlv_stats(team = "Omaha", year = 2025, level = "team")
 
 ### Available Data
 
-The package includes five main datasets created with the `group_stats()` function using data: player season data from AU (2021-2025) and player season and team match data for AU, LOVB, and MLV (2024-2025).
+The package includes five main datasets created with the `group_stats()` function using data: player season data from AU (`r min(au_player_data$year)`-`r max(au_player_data$year)`) and player season and team match data for AU, LOVB, and MLV (`r min(mlv_player_data$year)`-`r max(mlv_player_data$year)`).
 
 ```{r data-overview}
 # Load AU individual player data
@@ -221,7 +221,6 @@ Full definitions available at [LOVB League Statistics](https://www.lovb.com/2025
 * `assists`: Assists
 * `service_aces`: Service aces
 * `blocks`: Blocks
-* `out`: [Definition pending]
 * `attack_attempts`: Total attack attempts
 * `hitting_efficiency`: Attack efficiency percentage
 * `digs`: Successful defensive plays

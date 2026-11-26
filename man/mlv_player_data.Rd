@@ -40,7 +40,7 @@ mlv_player_data
 }
 \description{
 A dataset containing individual player season statistics for Major League Volleyball (MLV) players
-across the league for the 2024-2025 seasons.
+across the league for the 2024-2026 seasons.
 }
 \examples{
 head(mlv_player_data)
