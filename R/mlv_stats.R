@@ -59,7 +59,7 @@ mlv_stats <- function(team = NULL, year = NULL, level = NULL, stored = TRUE) {
   current_year <- current_year()
   yr <- year
   tm <- team
-  if (yr < current_year & stored) {
+  if (yr <= current_year & stored) {
     if (level == "team") {
       table <- provolleyballr::mlv_team_data |>
         dplyr::filter(.data$year == yr & .data$team == tm)

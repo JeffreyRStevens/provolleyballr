@@ -42,7 +42,7 @@ lovb_stats <- function(team = NULL, year = NULL, level = NULL) {
   current_year <- current_year()
   yr <- year
   tm <- team
-  if (yr < current_year) {
+  if (yr <= current_year) {
     if (level == "team") {
       table <- provolleyballr::lovb_team_data |>
         dplyr::filter(.data$year == yr & .data$team == tm)
@@ -95,11 +95,11 @@ lovb_stats <- function(team = NULL, year = NULL, level = NULL) {
 
     # Extract team or player stats
     if (level == "team") {
-      table <- extract_lovb_team_stats(page_html) |>
+      table <- extract_lovb_team_stats(page_html, year = year) |>
         dplyr::filter(.data$opponent != "Totals") |>
         dplyr::mutate(year = year, team = team, .before = 1)
     } else {
-      table <- extract_lovb_player_stats(page_html) |>
+      table <- extract_lovb_player_stats(page_html, year = year) |>
         dplyr::filter(.data$player != "Totals") |>
         dplyr::mutate(year = year, team = team, .before = 1)
     }
@@ -108,13 +108,17 @@ lovb_stats <- function(team = NULL, year = NULL, level = NULL) {
 }
 
 
-extract_lovb_player_stats <- function(page_html) {
+extract_lovb_player_stats <- function(page_html, year = year) {
   # Extract data table
   numbers_col <- page_html |>
     rvest::html_elements(
       xpath = "/html/body/main/div[6]/div/div/div[2]/div[2]/div[1]"
       # xpath = "/html/body/main/div[5]/div/div[2]/div[2]/div[1]"
     )
+
+  if (length(numbers_col) == 0) {
+    cli::cli_abort("LOVB statsitics for {year} are not available at this time.")
+  }
 
   numbers <- numbers_col |>
     rvest::html_elements(".text-sm") |>
@@ -233,7 +237,7 @@ extract_lovb_player_stats <- function(page_html) {
   return(player_table)
 }
 
-extract_lovb_team_stats <- function(page_html) {
+extract_lovb_team_stats <- function(page_html, year = year) {
   # Extract data table
   data_table <- page_html |>
     rvest::html_elements(
@@ -241,6 +245,10 @@ extract_lovb_team_stats <- function(page_html) {
       # xpath = "/html/body/main/div[5]/div/div[3]/div[2]/div[2]/div"
     ) |>
     rvest::html_elements(".overflow-hidden")
+
+  if (length(data_table) == 0) {
+    cli::cli_abort("LOVB statsitics for {year} are not available at this time.")
+  }
 
   table_vec <- data_table |>
     rvest::html_elements(".h-10") |>
