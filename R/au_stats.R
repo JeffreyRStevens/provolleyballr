@@ -61,8 +61,15 @@ au_stats <- function(year = NULL, stored = TRUE) {
     Sys.sleep(2)
 
     # Select year
-    s(".css-fyz21e-singleValue") |>
-      selenider::elem_click()
+    tryCatch(
+      s(".css-fyz21e-singleValue") |>
+        selenider::elem_click(),
+      error = function(cnd) {
+        cli::cli_abort(
+          "AU volleyball statistics are not available at this time."
+        )
+      }
+    )
     if (year == 2024) {
       s("input") |>
         selenider::elem_send_keys(selenider::keys$up, selenider::keys$enter)
